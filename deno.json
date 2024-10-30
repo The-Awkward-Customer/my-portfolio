@@ -1,0 +1,8 @@
+{
+    "compilerOptions": {
+      "jsx": "react-jsx",
+      "jsxImportSource": "react"
+    },
+    "importMap": "./import_map.json"
+  }
+  
