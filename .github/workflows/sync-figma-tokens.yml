@@ -1,14 +1,10 @@
-name: Sync Figma Tokens
+name: Generate CSS Tokens from Tokens Studio
 
 on:
   workflow_dispatch:
-    inputs:
-      FIGMA_FILE_ID:
-        description: "Figma file ID to sync tokens from"
-        required: true
 
 jobs:
-  sync-tokens:
+  build-tokens:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -26,19 +22,17 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Sync Figma tokens
-        env:
-          FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
-          FIGMA_FILE_ID: ${{ github.event.inputs.FIGMA_FILE_ID }}
-        run: npm run sync-figma-tokens
-
+      - name: Fetch tokens.json
+        run: |
+          # Command to fetch tokens.json
       - name: Build tokens with Style Dictionary
         run: npm run build
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
-          commit-message: "Update design tokens from Figma"
-          title: "Update design tokens from Figma"
-          body: "This PR updates the design tokens from Figma file: https://www.figma.com/file/${{ github.event.inputs.FIGMA_FILE_ID }}"
+          commit-message: "Update design tokens from Tokens Studio"
+          title: "Update design tokens from Tokens Studio"
+          body: "This PR updates the design tokens from Tokens Studio export."
           branch: "update-tokens"
+          add-paths: "build/**"

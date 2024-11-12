@@ -1,15 +1,45 @@
-{
-  "source": ["tokens.json"],
-  "platforms": {
-    "css": {
-      "transformGroup": "css",
-      "buildPath": "build/css/",
-      "files": [
+const StyleDictionary = require('style-dictionary');
+const tokensStudioTransforms = require('@tokens-studio/sd-transforms');
+
+StyleDictionary.extend({
+  // Register the Tokens Studio transforms
+  // This adds support for resolving references and handling the token format
+  ...tokensStudioTransforms,
+
+  // Define the source of your tokens
+  source: ['tokens.json'],
+
+  // Build for each theme (light and dark)
+  platforms: {
+    css: {
+      // Use the Tokens Studio transform group
+      transformGroup: 'tokens-studio',
+      buildPath: 'build/css/',
+      files: [
+        // Light theme
         {
-          "destination": "tokens.css",
-          "format": "css/variables"
-        }
-      ]
-    }
-  }
-}
+          destination: 'tokens-light.css',
+          format: 'css/variables',
+          options: {
+            // Specify the token set to include
+            // 'Collection 1/light' in this case
+            outputReferences: true,
+            selector: ':root',
+            tokenSetOrder: ['global', 'Collection 1/light'],
+          },
+        },
+        // Dark theme
+        {
+          destination: 'tokens-dark.css',
+          format: 'css/variables',
+          options: {
+            // 'Collection 1/dark' token set
+            outputReferences: true,
+            selector: ':root.dark-mode',
+            tokenSetOrder: ['global', 'Collection 1/dark'],
+          },
+        },
+      ],
+    },
+  },
+}).buildAllPlatforms();
