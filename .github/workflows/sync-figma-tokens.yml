@@ -1,115 +1,44 @@
-name: Fetch and Build Design Tokens
+name: Sync Figma Tokens
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
+    inputs:
+      FIGMA_FILE_ID:
+        description: "Figma file ID to sync tokens from"
+        required: true
 
 jobs:
-  fetch-and-build:
+  sync-tokens:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: "18" # Upgrade Node.js version to 18
+          node-version: "18"
 
       - name: Install dependencies
-        run: |
-          npm install axios style-dictionary --verbose
+        run: npm install
 
-      - name: Verify installed dependencies
-        run: |
-          npm list axios
-          npm list style-dictionary
-
-      - name: Check Style Dictionary executable
-        run: npx style-dictionary --help
-
-      - name: Fetch design tokens from Figma
+      - name: Sync Figma tokens
         env:
           FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
-          FIGMA_FILE_ID: ${{ secrets.FIGMA_FILE_ID }}
-        run: |
-          node -e "
-          const axios = require('axios');
-          const fs = require('fs');
-
-          const FIGMA_TOKEN = process.env.FIGMA_TOKEN;
-          const FILE_ID = process.env.FIGMA_FILE_ID;
-
-          async function fetchFigmaTokens() {
-            try {
-              const response = await axios.get(\`https://api.figma.com/v1/files/\${FILE_ID}\`, {
-                headers: {
-                  'X-Figma-Token': FIGMA_TOKEN,
-                },
-              });
-
-              const data = response.data;
-              console.log('Figma API Response:', JSON.stringify(data, null, 2));
-
-              const tokens = {};
-
-              if (data && data.styles) {
-                for (const [key, value] of Object.entries(data.styles)) {
-                  if (value.styleType === 'FILL') {
-                    tokens[value.name] = value.description || key;
-                  }
-                }
-              }
-
-              fs.writeFileSync('tokens.json', JSON.stringify(tokens, null, 2));
-              console.log('Tokens successfully saved to tokens.json');
-            } catch (error) {
-              console.error('Error fetching tokens from Figma:', error);
-              process.exit(1);
-            }
-          }
-
-          fetchFigmaTokens();
-          "
-
-      - name: List current directory (Debugging step)
-        run: ls -l
+          FIGMA_FILE_ID: ${{ github.event.inputs.FIGMA_FILE_ID }}
+        run: npm run sync-figma-tokens
 
       - name: Build tokens with Style Dictionary
-        run: |
-          echo '{
-            "source": ["tokens.json"],
-            "platforms": {
-              "css": {
-                "transformGroup": "css",
-                "buildPath": "build/css/",
-                "files": [
-                  {
-                    "destination": "tokens.css",
-                    "format": "css/variables"
-                  }
-                ]
-              }
-            }
-          }' > config.json
+        run: npm run build
 
-          npx style-dictionary build --config config.json
-
-      - name: List build directory (Debugging step)
-        run: ls -R build/
-
-      - name: Commit and push changes
-        if: github.ref == 'refs/heads/main'
-        run: |
-          git config --global user.name 'github-actions'
-          git config --global user.email 'github-actions@github.com'
-          if [ -d "build/" ]; then
-            git add build/
-            git commit -m 'Update design tokens [skip ci]' || echo "No changes to commit"
-            git push origin main || echo "Nothing to push"
-          else
-            echo "Build directory not found, skipping commit."
-          fi
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          commit-message: "Update design tokens from Figma"
+          title: "Update design tokens from Figma"
+          body: "This PR updates the design tokens from Figma file: https://www.figma.com/file/${{ github.event.inputs.FIGMA_FILE_ID }}"
+          branch: "update-tokens"
