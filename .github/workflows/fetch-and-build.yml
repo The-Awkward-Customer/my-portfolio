@@ -85,11 +85,18 @@ jobs:
 
           npx style-dictionary build --config config.json
 
+      - name: List build directory (Debugging step)
+        run: ls -R build/
+
       - name: Commit and push changes
         if: github.ref == 'refs/heads/main'
         run: |
           git config --global user.name 'github-actions'
           git config --global user.email 'github-actions@github.com'
-          git add build/
-          git commit -m 'Update design tokens [skip ci]'
-          git push origin main
+          if [ -d "build/" ]; then
+            git add build/
+            git commit -m 'Update design tokens [skip ci]' || echo "No changes to commit"
+            git push origin main || echo "Nothing to push"
+          else
+            echo "Build directory not found, skipping commit."
+          fi
