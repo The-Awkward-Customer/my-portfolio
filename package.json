@@ -5,14 +5,16 @@
   "type": "module",
   "scripts": {
     "sync-figma-tokens": "node scripts/sync-figma-tokens.js",
-    "build-style": "style-dictionary build",
+    "tokens": "node style-dictionary.config.js",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@tokens-studio/sd-transforms": "^1.2.8",
     "axios": "^1.7.7",
+    "deep-extend": "^0.6.0",
     "next": "15.0.2",
     "react": "19.0.0-rc-02c0e824-20241028",
     "react-dom": "19.0.0-rc-02c0e824-20241028",
