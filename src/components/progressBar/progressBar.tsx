@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState, useEffect, useRef } from "react";
 import styles from "./progressBar.module.css";
 
@@ -20,29 +22,27 @@ const ProgressBar: React.FC<progressBarProps> = ({ children }) => {
       setProgress(scrolled);
       if (scrolled >= 100 && !expanded) {
         setExpanded(true);
+      } else if (scrolled < 100 && expanded) {
+        setExpanded(false);
       }
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [expanded]);
 
-  useEffect(() => {
-    if (expanded && barRef.current) {
-      barRef.current.style.height = "44px";
-    }
-  }, [expanded]);
-
   return (
     <div className={styles.progressBarContainer}>
       <div
+        ref={barRef}
         className={styles.progress}
         style={{
           width: `${progress}%`,
           height: expanded ? "44px" : "8px",
-          transition: "height 0.3s ease-in-out",
+          transition: "height 0.2s ease-in-out",
         }}
-      />
-      {expanded && <div className={styles.childrenContainer}>{children}</div>}
+      >
+        {expanded && <div className={styles.childrenContainer}>{children}</div>}
+      </div>
     </div>
   );
 };
