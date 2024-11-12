@@ -1,7 +1,6 @@
 name: Fetch and Build Design Tokens
 
 on:
-  # Trigger the workflow when pushing to the main branch or manually via workflow_dispatch
   push:
     branches:
       - main
@@ -22,7 +21,15 @@ jobs:
 
       - name: Install dependencies
         run: |
-          npm install axios style-dictionary
+          npm install axios style-dictionary --verbose
+
+      - name: Verify installed dependencies
+        run: |
+          npm list axios
+          npm list style-dictionary
+
+      - name: Check Style Dictionary executable
+        run: npx style-dictionary --help
 
       - name: Fetch design tokens from Figma
         env:
