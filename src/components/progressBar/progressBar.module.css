@@ -1,0 +1,25 @@
+/* src/components/ProgressBar.module.css */
+
+.progressBarContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: transparent;
+  z-index: 9999;
+}
+
+.progress {
+  background-color: #ffffff; /* Change to your preferred color */
+  width: 0;
+  transition: width 0.1s ease, height 0.5s ease;
+}
+
+.childrenContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  color: #fff;
+  background-color: #0070f3; /* Change to your preferred color */
+}
