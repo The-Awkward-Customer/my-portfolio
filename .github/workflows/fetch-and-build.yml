@@ -45,6 +45,8 @@ jobs:
               });
 
               const data = response.data;
+              console.log('Figma API Response:', JSON.stringify(data, null, 2));
+
               const tokens = {};
 
               if (data && data.styles) {
@@ -59,11 +61,15 @@ jobs:
               console.log('Tokens successfully saved to tokens.json');
             } catch (error) {
               console.error('Error fetching tokens from Figma:', error);
+              process.exit(1);
             }
           }
 
           fetchFigmaTokens();
           "
+
+      - name: List current directory (Debugging step)
+        run: ls -l
 
       - name: Build tokens with Style Dictionary
         run: |
