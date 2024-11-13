@@ -1,35 +1,36 @@
-// src/components/ProgressBar.tsx
-
 "use client";
 
 import React from "react";
-import Link from "next/link";
 import styles from "./top-nav.module.css";
-
-type topNavLink = {
-  label: string;
-  href: string;
-};
+import Button from "../buttons/button";
 
 type topNavProps = {
-  title?: string;
-  links: topNavLink[];
+  title: string;
 };
 
-const TopNav: React.FC<topNavProps> = ({ title = "My portfolio", links }) => {
+const TopNav: React.FC<topNavProps> = ({ title }) => {
   return (
-    <nav className={styles.nav}>
-      <h1 className={styles.header}>{title}</h1>
-      <ul className={styles.linkContainer}>
-        {links.map((link, index) => (
-          <li key={index} className={styles.list}>
-            <Link href={link.href} className={styles.link}>
-              {link.label}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </nav>
+    <section className={styles.topNavContainer}>
+      <nav>
+        <Button
+          type="primary"
+          size="small"
+          variant="text"
+          route={"/index"}
+          altText="Home"
+        />
+        <div>
+          <Button
+            type="primary"
+            size="small"
+            variant="text"
+            route={"/about-me"}
+            altText="About me"
+          />
+        </div>
+      </nav>
+      <p>{title}</p>
+    </section>
   );
 };
 
