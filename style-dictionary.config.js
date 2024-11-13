@@ -1,36 +1,26 @@
-import { register } from "@tokens-studio/sd-transforms";
 import StyleDictionary from "style-dictionary";
+import { register } from "@tokens-studio/sd-transforms";
 
-// Register the Tokens Studio transforms
-register(StyleDictionary, {
-  references: {
-    includeReferencedSets: true,
-    strict: false,
-  },
-});
+// sd-transforms, 2nd parameter for options can be added
+// See docs: https://github.com/tokens-studio/sd-transforms
+register(StyleDictionary, { excludeParentKeys: true });
 
 const sd = new StyleDictionary({
   source: ["tokens.json"],
-  // Enable verbose logging to identify missing references
   log: {
-    level: "error",
     verbosity: "verbose",
   },
+
+  preprocessors: ["tokens-studio"],
   platforms: {
     css: {
       transformGroup: "tokens-studio",
       transforms: ["name/kebab"],
-      buildPath: "build/css/",
+      buildPath: "src/app/",
       files: [
         {
-          destination: "tokens.css",
+          destination: "_variables.css",
           format: "css/variables",
-          options: {
-            outputReferences: true,
-            selector: ":root",
-            // Update to use core and semantic sets
-            sets: ["core", "semantic"],
-          },
         },
       ],
     },
