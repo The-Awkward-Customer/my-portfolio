@@ -4,26 +4,17 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: var(--wildcard);
+  background-color: var(--bg-page);
 }
 
 /* Tablet - styles for screens between 481px and 768px */
 @media (min-width: 481px) and (max-width: 768px) {
-  .main {
-    background-color: var(--bg-inverse);
-  }
 }
 
 /* Small Desktop / Laptop - styles for screens between 769px and 1024px */
 @media (min-width: 769px) and (max-width: 1024px) {
-  .main {
-    background-color: var(--bg-inverse);
-  }
 }
 
 /* Large Desktop - styles for screens larger than 1025px */
 @media (min-width: 1025px) {
-  .main {
-    background-color: var(--bg-page);
-  }
 }

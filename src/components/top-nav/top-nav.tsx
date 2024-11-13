@@ -8,28 +8,39 @@ type topNavProps = {
   title: string;
 };
 
-const TopNav: React.FC<topNavProps> = ({ title }) => {
+const TopNav: React.FC<topNavProps> = ({ title = "relace me" }) => {
   return (
-    <section className={styles.topNavContainer}>
-      <nav>
-        <Button
-          type="primary"
-          size="small"
-          variant="text"
-          route={"/index"}
-          altText="Home"
-        />
-        <div>
+    <section className={styles.navRoot}>
+      <div className={styles.navWrapper}>
+        <nav className={styles.header}>
           <Button
             type="primary"
             size="small"
             variant="text"
-            route={"/about-me"}
-            altText="About me"
+            route={"/index"}
+            altText="Home"
           />
+          <div className={styles.navButtonGroup}>
+            <Button
+              type="primary"
+              size="small"
+              variant="text"
+              route={"/about-me"}
+              altText="About me"
+            />
+            <Button
+              type="primary"
+              size="small"
+              variant="text"
+              route={"/about-me"}
+              altText="About me"
+            />
+          </div>
+        </nav>
+        <div className={styles.footer}>
+          <p>{title}</p>
         </div>
-      </nav>
-      <p>{title}</p>
+      </div>
     </section>
   );
 };

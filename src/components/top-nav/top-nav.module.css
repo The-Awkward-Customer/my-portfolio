@@ -1,25 +1,51 @@
-/* src/components/ProgressBar.module.css */
-
-.progressBarContainer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: transparent;
-  z-index: 9999;
-}
-
-.progress {
-  background-color: #0070f3; /* Change to your preferred color */
-  width: 0;
-  transition: width 0.1s ease, height 0.5s ease;
-}
-
-.childrenContainer {
+/* Base (Mobile First Approach) */
+.navRoot {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  padding: 1rem;
-  color: #fff;
-  background-color: #0070f3; /* Change to your preferred color */
+  justify-content: center;
+  width: 744px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.navWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: var(--bg-inverse);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navButtonGroup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+/* Tablet - styles for screens between 481px and 768px */
+@media (min-width: 481px) and (max-width: 768px) {
+}
+
+/* Small Desktop / Laptop - styles for screens between 769px and 1024px */
+@media (min-width: 769px) and (max-width: 1024px) {
+}
+
+/* Large Desktop - styles for screens larger than 1025px */
+@media (min-width: 1025px) {
 }
