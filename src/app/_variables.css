@@ -1,0 +1,30 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --neutral-200: #dcdcdc;
+  --neutral-100: #faf6f6;
+  --neutral-800: #010214;
+  --neutral-600: #464a51;
+  --neutral-300: #ebebeb;
+  --wildcard: #ff0808;
+  --bg-page: #faf6f6;
+  --fg-primary: #010214;
+  --placeholder-grey: #ebebeb;
+  --bg-inverse: #010214;
+  --fg-inverse: #faf6f6;
+  --bg-neutral: #faf6f6;
+  --bdr-inverse: #faf6f6;
+  --bdr-primary: #010214;
+  --fg-secondary: #464a51;
+  --bdr-radius-large: 2rem;
+  --bdr-radius-none: 0rem;
+  --bdr-radius-small-inset: 0.3125rem;
+  --bdr-radius-pill: 62.4375rem;
+  --bdr-radius-tiny: 0.25rem;
+  --opacity-opaque: 6.25rem;
+  --opacity-invisible: 0rem;
+  --bdr-radius-small: 0.5rem;
+  --nested-random: #faf6f6;
+}
