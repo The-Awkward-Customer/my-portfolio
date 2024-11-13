@@ -1,8 +1,13 @@
-import StyleDictionary from "style-dictionary";
 import { register } from "@tokens-studio/sd-transforms";
+import StyleDictionary from "style-dictionary";
 
 // Register the Tokens Studio transforms
-register(StyleDictionary);
+register(StyleDictionary, {
+  references: {
+    includeReferencedSets: true,
+    strict: false,
+  },
+});
 
 const sd = new StyleDictionary({
   source: ["tokens.json"],
@@ -14,27 +19,17 @@ const sd = new StyleDictionary({
   platforms: {
     css: {
       transformGroup: "tokens-studio",
+      transforms: ["name/kebab"],
       buildPath: "build/css/",
       files: [
-        // Light Theme
         {
-          destination: "tokens-light.css",
+          destination: "tokens.css",
           format: "css/variables",
           options: {
             outputReferences: true,
             selector: ":root",
-            // Include necessary token sets
-            sets: ["global", "Collection 1/light"],
-          },
-        },
-        // Dark Theme
-        {
-          destination: "tokens-dark.css",
-          format: "css/variables",
-          options: {
-            outputReferences: true,
-            selector: ":root.dark-mode",
-            sets: ["global", "Collection 1/dark"],
+            // Update to use core and semantic sets
+            sets: ["core", "semantic"],
           },
         },
       ],
