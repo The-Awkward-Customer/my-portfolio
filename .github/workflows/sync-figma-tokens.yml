@@ -1,38 +1,50 @@
-name: Generate CSS Tokens from Tokens Studio
+name: Generate Tokens
 
 on:
   workflow_dispatch:
+    inputs:
+      base_branch:
+        description: "Select the base branch to merge into"
+        required: true
+        default: "main"
+      target_branch:
+        description: "Name of the branch to create for the PR"
+        required: false
+        default: "tokens-update-branch"
 
 jobs:
-  build-tokens:
+  build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
 
     steps:
-      - name: Checkout repository
+      - name: Check out repository
         uses: actions/checkout@v3
+        with:
+          persist-credentials: false # Important to prevent pushing with the default GITHUB_TOKEN
+          fetch-depth: 0 # Fetch all history for accurate git operations
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "18"
+          node-version: "20" # Specify your Node.js version
 
       - name: Install dependencies
         run: npm install
 
-      - name: Fetch tokens.json
-        run: |
-          # Command to fetch tokens.json
-      - name: Build tokens with Style Dictionary
-        run: npm run build
+      - name: Run tokens generation
+        run: npm run tokens
 
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v5
+      - name: Commit and push changes
+        uses: peter-evans/create-pull-request@v4
         with:
-          commit-message: "Update design tokens from Tokens Studio"
-          title: "Update design tokens from Tokens Studio"
-          body: "This PR updates the design tokens from Tokens Studio export."
-          branch: "update-tokens"
-          add-paths: "build/**"
+          token: ${{ secrets.ACTIONS_PAT }} # Use a PAT stored in repository secrets
+          branch: ${{ github.event.inputs.target_branch }}
+          commit-message: "chore: update tokens"
+          committer: GitHub <noreply@github.com>
+          author: Your Name <your.email@example.com>
+          title: "Update Tokens"
+          body: "This pull request updates the tokens."
+          base: ${{ github.event.inputs.base_branch }}
+          labels: "automation, tokens"
+          assignees: "your-github-username"
+          delete-branch: true
