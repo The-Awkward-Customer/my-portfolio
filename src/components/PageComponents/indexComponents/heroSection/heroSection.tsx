@@ -19,11 +19,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({ images }) => {
 
   // Refs to store cumulative movement and last cursor position
   const cumulativeDistanceRef = useRef<number>(0);
-//   const lastPositionRef = useRef<{ x: number; y: number } | null>(null);
+  const lastPositionRef = useRef<{ x: number; y: number } | null>(null);
 
   // Ref for InteractiveImage positioning
   const interactiveImageRef = useRef<HTMLDivElement>(null);
-  const heroSectionRef = useRef<HTMLElement>(null);
 
   // Determine if the device is mobile based on viewport width
   useEffect(() => {
@@ -39,8 +38,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ images }) => {
 
   // Handler for mouse movement from HeroText (throttled)
   const handleMouseMove = useCallback(
-    throttle((movementData: { deltaX: number; deltaY: number; x: number; y: number }) => {
-      const { deltaX, deltaY, x, y } = movementData;
+    throttle((movementData: { deltaX: number; deltaY: number; clientX: number; clientY: number }) => {
+      const { deltaX, deltaY, clientX, clientY } = movementData;
 
       // Calculate the distance moved using Euclidean distance
       const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
@@ -56,13 +55,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({ images }) => {
       }
 
       // Update the position of InteractiveImage
-      if (interactiveImageRef.current && heroSectionRef.current && !isMobile) {
-        const heroRect = heroSectionRef.current.getBoundingClientRect();
-        const relativeX = x - heroRect.left;
-        const relativeY = y - heroRect.top;
-
-        interactiveImageRef.current.style.left = `${relativeX}px`;
-        interactiveImageRef.current.style.top = `${relativeY}px`;
+      if (interactiveImageRef.current && !isMobile) {
+        interactiveImageRef.current.style.left = `${clientX}px`;
+        interactiveImageRef.current.style.top = `${clientY}px`;
       }
     }, 10), // Throttle to every 10ms for higher responsiveness
     [currentImageIndex, images.length, isMobile]
@@ -95,12 +90,15 @@ const HeroSection: React.FC<HeroSectionProps> = ({ images }) => {
   const handleMouseEnter = () => {
     setIsHovering(true);
     console.log(`Hover started: isHovering=${true}`);
+    cumulativeDistanceRef.current = 0; // Reset cumulative distance on hover
+    lastPositionRef.current = null; // Reset last position to avoid offset
   };
 
   const handleMouseLeave = () => {
     setIsHovering(false);
     console.log(`Hover ended: isHovering=${false}`);
     cumulativeDistanceRef.current = 0; // Reset cumulative distance when hover ends
+    lastPositionRef.current = null; // Reset last position
     if (interactiveImageRef.current) {
       interactiveImageRef.current.style.left = `0px`;
       interactiveImageRef.current.style.top = `0px`;
@@ -108,12 +106,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ images }) => {
   };
 
   return (
-    <section className={styles.heroSection} ref={heroSectionRef}>
-      <HeroText
-        onMouseMove={handleMouseMove}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      />
+    <section className={styles.heroSection}>
+      
       {/* Conditionally render InteractiveImage only when hovering and not on mobile */}
       {!isMobile && isHovering && (
         <InteractiveImage
@@ -130,6 +124,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({ images }) => {
           isMobile={isMobile}
         />
       )}
+      <HeroText
+        onMouseMove={handleMouseMove}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      />
     </section>
   );
 };

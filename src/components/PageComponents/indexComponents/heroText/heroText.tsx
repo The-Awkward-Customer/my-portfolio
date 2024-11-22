@@ -4,7 +4,7 @@ import React, { useRef } from 'react';
 import styles from './HeroText.module.css';
 
 interface HeroTextProps {
-  onMouseMove: (movementData: { deltaX: number; deltaY: number; x: number; y: number }) => void;
+  onMouseMove: (movementData: { deltaX: number; deltaY: number; clientX: number; clientY: number }) => void;
   onMouseEnter: () => void;
   onMouseLeave: () => void;
 }
@@ -13,15 +13,15 @@ const HeroText: React.FC<HeroTextProps> = ({ onMouseMove, onMouseEnter, onMouseL
   const lastPositionRef = useRef<{ x: number; y: number } | null>(null);
 
   const handleMouseMove = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    const { pageX, pageY } = event; // Use pageX/Y to account for scroll
+    const { clientX, clientY } = event; // Use clientX and clientY to align with fixed positioning
 
     if (lastPositionRef.current) {
-      const deltaX = pageX - lastPositionRef.current.x;
-      const deltaY = pageY - lastPositionRef.current.y;
-      onMouseMove({ deltaX, deltaY, x: pageX, y: pageY });
+      const deltaX = clientX - lastPositionRef.current.x;
+      const deltaY = clientY - lastPositionRef.current.y;
+      onMouseMove({ deltaX, deltaY, clientX, clientY });
     }
 
-    lastPositionRef.current = { x: pageX, y: pageY };
+    lastPositionRef.current = { x: clientX, y: clientY };
   };
 
   const handleMouseLeaveEvent = () => {

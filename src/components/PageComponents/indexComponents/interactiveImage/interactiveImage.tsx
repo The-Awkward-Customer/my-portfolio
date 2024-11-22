@@ -22,7 +22,7 @@ const InteractiveImage = forwardRef<HTMLDivElement, InteractiveImageProps>(
           alt="Interactive Element"
           fill // Ensures the image fills the container
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          style={{ objectFit: 'contain' }}
+          style={{ objectFit: 'cover' }}
         />
       </div>
     );
