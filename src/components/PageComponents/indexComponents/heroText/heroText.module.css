@@ -1,0 +1,20 @@
+/* components/HeroText/HeroText.module.css */
+
+.heroText {
+    cursor: none; /* Hide the default cursor when over hero text */
+    text-align: center;
+    padding: 20px;
+    user-select: none; /* Prevent text selection during interaction */
+  }
+  
+  .heroText h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  
+  .heroText p {
+    font-size: 1.5rem;
+    color: #666;
+  }
+  
