@@ -15,6 +15,15 @@ const images = [
   '/images/profilePictures/profile-p-1.jpg',
   '/images/profilePictures/profile-p-2.jpg',
   '/images/profilePictures/profile-p-3.jpg',
+  '/images/profilePictures/profile-p-4.jpg',
+  '/images/profilePictures/profile-p-5.jpg',
+  '/images/profilePictures/profile-p-6.jpg',
+  '/images/profilePictures/profile-p-7.jpg',
+  '/images/profilePictures/profile-p-8.jpg',
+  '/images/profilePictures/profile-p-9.jpg',
+  '/images/profilePictures/profile-p-10.jpg',
+  '/images/profilePictures/profile-p-11.jpg',
+  '/images/profilePictures/profile-p-12.jpg',
 ]
   
   return (
