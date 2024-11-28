@@ -5,6 +5,9 @@ import ProgressBar from "@/components/progressBar/progressBar";
 import styles from "./page.module.css";
 
 import HeroSection from "@/components/PageComponents/indexComponents/heroSection/heroSection";
+import SectionHeader from "@/components/SectionHeaders/SectionHeader";
+import GridLayout from "@/components/PageComponents/indexComponents/GridLayout/GridLayout";
+import Placeholder from "@/components/Placeholder/Placeholder";
 
 
 
@@ -28,6 +31,15 @@ const images = [
   
   return (
     <main className={styles.main}>
+<GridLayout>
+        <Placeholder optionalText="1" />
+        <Placeholder optionalText="2" />
+        <Placeholder optionalText="3"/>
+        <Placeholder optionalText="4" />
+        <Placeholder optionalText="5" />
+        <Placeholder optionalText="6"/>
+      </GridLayout>
+
       <ProgressBar>
         <p>Congratulations! You&apos;ve reached the bottom of the page!</p>
       </ProgressBar>
@@ -40,6 +52,9 @@ const images = [
           <h1>Welcome to My Portfolio</h1>
           <p>Scroll down to see the progress bar in action!</p>
         </div>
+      </section>
+      <section>
+        <SectionHeader title="About Me" standfirst="Hello"/>
       </section>
     </main>
   );

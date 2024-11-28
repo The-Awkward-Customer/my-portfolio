@@ -1,0 +1,13 @@
+.placeholderContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(202, 9, 202, 0.5);
+}
+
+.placeholderText {
+    font-size: 2rem;
+    text-align: center;
+}

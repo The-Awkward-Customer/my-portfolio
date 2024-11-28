@@ -1,0 +1,15 @@
+.sectionHeaderRoot {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 2rem 0;
+    color: #333;
+}
+
+.sectionStandfirst {
+    font-size: 1.5rem;
+    font-weight: normal;
+    text-align: center;
+    margin: 1rem 0;
+    color: #666;
+}

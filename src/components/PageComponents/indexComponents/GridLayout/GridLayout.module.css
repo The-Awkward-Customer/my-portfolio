@@ -1,0 +1,42 @@
+
+.gridContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: lightcoral;
+    width: 100%;
+}
+
+.gridLayout {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+    gap: 16px; /* Space between grid items */
+    grid-auto-flow: dense; /* Fill the grid according to item spans */
+  }
+  
+  .gridLayout > :nth-child(3n + 1) {
+    grid-column: span 2; /* Full width */
+    aspect-ratio: 16 / 9; /* Widescreen aspect ratio */
+  }
+  
+  .gridLayout > :nth-child(3n + 2),
+  .gridLayout > :nth-child(3n + 3) {
+    grid-column: span 1; /* Half width */
+    aspect-ratio: 1 / 1; /* Square */
+  }
+
+/* Mobile */
+@media (max-width: 767px) {
+
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1024px) {
+    /* Add your tablet styles here */
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+    /* Add your desktop styles here */
+}
