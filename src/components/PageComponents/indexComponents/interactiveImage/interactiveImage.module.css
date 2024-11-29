@@ -2,8 +2,8 @@
 
 .interactiveImage {
   position: absolute; /* Absolute positioning for desktop */
-  width: 100px; /* Adjust size as needed */
-  height: 133px;
+  width: 200px; /* Adjust size as needed */
+  height: 266px;
   pointer-events: none; /* Allows mouse events to pass through */
   transition: opacity 0.3s ease; /* Smooth opacity transition */
   opacity: 1; /* Initially hidden */
@@ -20,8 +20,8 @@
 
 .fixed {
     position: relative; /* Fixed positioning for mobile */
-    width: 60px; /* Adjust size for mobile as needed */
-    height: 60px;
+    width: 120px; /* Adjust size for mobile as needed */
+    height: 120px;
     transform: none; /* Remove translation for fixed positioning */
     border-radius: 100%;
 }

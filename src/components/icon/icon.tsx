@@ -1,5 +1,5 @@
 import { icons } from "@/components/icon/iconsLib";
-import styles from "icon.module.css"
+import styles from "./icon.module.css"
 
 type Colors = "primary" | "on-primary" | "green-success";
 

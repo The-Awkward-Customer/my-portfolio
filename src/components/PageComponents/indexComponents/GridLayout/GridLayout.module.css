@@ -6,6 +6,7 @@
     justify-content: center;
     background-color: lightcoral;
     width: 100%;
+    padding: 24px;
 }
 
 .gridLayout {
@@ -13,6 +14,8 @@
     grid-template-columns: repeat(2, 1fr); /* Two equal columns */
     gap: 16px; /* Space between grid items */
     grid-auto-flow: dense; /* Fill the grid according to item spans */
+    background-color: lightblue;
+    width: 100%;
   }
   
   .gridLayout > :nth-child(3n + 1) {
@@ -26,17 +29,35 @@
     aspect-ratio: 1 / 1; /* Square */
   }
 
-/* Mobile */
-@media (max-width: 767px) {
+/* Tablet - styles for screens between 481px and 768px */
+@media (min-width: 481px) and (max-width: 768px) {
+    .gridContainer{
+        background-color: rgb(228, 147, 147);
+    }
 
+    .gridLayout {
+        background-color: lightblue;
+      }
 }
 
-/* Tablet */
-@media (min-width: 768px) and (max-width: 1024px) {
-    /* Add your tablet styles here */
+/* Small Desktop / Laptop - styles for screens between 769px and 1024px */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .gridContainer{
+        background-color: rgb(228, 97, 97);
+    }
+
+    .gridLayout {
+        background-color: rgb(61, 180, 220);
+      }
 }
 
-/* Desktop */
+/* Large Desktop - styles for screens larger than 1025px */
 @media (min-width: 1025px) {
-    /* Add your desktop styles here */
+    .gridContainer{
+        background-color: rgb(222, 36, 36);
+    }
+
+    .gridLayout {
+        background-color: rgb(8, 174, 230);
+      }
 }

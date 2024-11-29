@@ -39,8 +39,8 @@ const HeroText: React.FC<HeroTextProps> = ({ onMouseMove, onMouseEnter, onMouseL
       role="button" // Indicates it's interactive
       aria-label="Hero Text"
     >
-      <h1>Welcome to Our Website</h1>
-      <p>Experience the interactive journey.</p>
+      <h1>Hi, I&apos;m pete</h1>
+      <p>Digital Product Engineer.</p>
     </div>
   );
 };

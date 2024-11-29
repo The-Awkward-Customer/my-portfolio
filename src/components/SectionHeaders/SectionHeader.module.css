@@ -1,9 +1,10 @@
 .sectionHeaderRoot {
-    font-size: 2rem;
-    font-weight: bold;
-    text-align: center;
-    margin: 2rem 0;
-    color: #333;
+    display: grid;
+    place-items: start start;
+    background-color: lightblue;
+    padding-left: 24px;
+    padding-right: 24px;
+    width: 100%;
 }
 
 .sectionStandfirst {
@@ -12,4 +13,25 @@
     text-align: center;
     margin: 1rem 0;
     color: #666;
+}
+
+.sectionHeader {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+    background-color: lightblue;
+}
+
+
+/* Tablet - styles for screens between 481px and 768px */
+@media (min-width: 481px) and (max-width: 768px) {
+}
+
+/* Small Desktop / Laptop - styles for screens between 769px and 1024px */
+@media (min-width: 769px) and (max-width: 1024px) {
+}
+
+/* Large Desktop - styles for screens larger than 1025px */
+@media (min-width: 1025px) {
 }

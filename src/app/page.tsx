@@ -8,6 +8,7 @@ import HeroSection from "@/components/PageComponents/indexComponents/heroSection
 import SectionHeader from "@/components/SectionHeaders/SectionHeader";
 import GridLayout from "@/components/PageComponents/indexComponents/GridLayout/GridLayout";
 import Placeholder from "@/components/Placeholder/Placeholder";
+import Footer from "@/components/Footer/Footer";
 
 
 
@@ -31,7 +32,20 @@ const images = [
   
   return (
     <main className={styles.main}>
-<GridLayout>
+
+      <ProgressBar>
+        <p>Congratulations! You&apos;ve reached the bottom of the page!</p>
+      </ProgressBar>
+
+      <TopNav title="Peter Abbott" />
+
+
+      <HeroSection images={images}/>
+
+
+        <SectionHeader title="About Me" standfirst="Hello"/>
+
+      <GridLayout>
         <Placeholder optionalText="1" />
         <Placeholder optionalText="2" />
         <Placeholder optionalText="3"/>
@@ -40,22 +54,8 @@ const images = [
         <Placeholder optionalText="6"/>
       </GridLayout>
 
-      <ProgressBar>
-        <p>Congratulations! You&apos;ve reached the bottom of the page!</p>
-      </ProgressBar>
-      <TopNav title="Peter Abbott" />
-
-      <HeroSection images={images}/>
-
-      <section>
-        <div style={{ height: "2000px", padding: "1rem" }}>
-          <h1>Welcome to My Portfolio</h1>
-          <p>Scroll down to see the progress bar in action!</p>
-        </div>
-      </section>
-      <section>
-        <SectionHeader title="About Me" standfirst="Hello"/>
-      </section>
+      
+      <Footer/>
     </main>
   );
 }

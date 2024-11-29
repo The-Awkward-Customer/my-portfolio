@@ -8,9 +8,9 @@ interface SectionHeaderProps {
 
 const SectionHeader: React.FC<SectionHeaderProps> = ({ title, standfirst }) => {
     return (
-        <div className={`${styles.sectionHeaderRoot}`}>
-            {standfirst && <p className={`${styles.sectionStandfirst}`}>{standfirst}</p>}
-            <h2>{title}</h2>
+        <div className={styles.sectionHeaderRoot}>
+            {standfirst && <p className={styles.sectionStandfirst}>{standfirst}</p>}
+            <h2 className={styles.sectionHeader}>{title}</h2>
         </div>
     );
 };
