@@ -10,9 +10,11 @@
 }
 
 .progress {
-  background-color: #ffffff; /* Change to your preferred color */
+  background-color: var(--fg-primary); /* Change to your preferred color */
   width: 0;
-  transition: width 0.1s ease, height 0.5s ease;
+  transition:
+    width 0.1s ease,
+    height 0.5s ease;
 }
 
 .childrenContainer {
@@ -20,6 +22,6 @@
   justify-content: center;
   align-items: center;
   padding: 1rem;
-  color: #fff;
-  background-color: #0070f3; /* Change to your preferred color */
+  color: var(--fg-inverse);
+  background-color: var(--fg-primary); /* Change to your preferred color */
 }

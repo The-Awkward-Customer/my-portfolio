@@ -1,72 +1,87 @@
-import styles from "./button.module.css"
-import { useRouter } from "next/router";
-import { icons } from "../icon/iconsLib";
+"use client";
 
-type ButtonType = {
-    type: "primary" | "secondary" | "tertiary"
-}
+import styles from "./Button.module.css";
+import { useRouter } from "next/navigation";
+import { icons } from "../Icon/IconsLib";
+import React, { useEffect, useState } from "react";
 
-type ButtonSizes = {
-    sizes: "small" | "medium" | "large";
-}
-
+type ButtonType = "primary" | "secondary" | "tertiary";
+type ButtonSizes = "small" | "medium" | "large";
 type ButtonVariant = "text" | "icon";
 
 type ButtonProps = {
-    type: ButtonType;
-    size: ButtonSizes;
-    variant: ButtonVariant;
-    route: string | null;
-    altText: string;
-    // Text-only props
-    label?: string;
-    // Icon-only props 
-    iconName?: string;
-    iconColor?: string;
-}
+  type: ButtonType;
+  size: ButtonSizes;
+  variant: ButtonVariant;
+  route: string | null;
+  altText: string;
+  // Text-only props
+  label?: string;
+  // Icon-only props
+  iconName?: keyof typeof icons;
+  iconColor?: string;
+};
 
-const Button: React.FC<ButtonProps> = ({ 
-    size, 
-    type, 
-    variant,
-    label = "Replace me",
-    route,
-    iconName,
-    iconColor
+const Button: React.FC<ButtonProps> = ({
+  size,
+  type,
+  variant,
+  label = "Replace me",
+  route,
+  iconName,
+  iconColor = "black",
+  altText,
 }) => {
-    const buttonTypeClass = styles[`${type}`];
-    const buttonSizeClass = styles[`${size}`];
-    const buttonClass = `${buttonTypeClass} ${buttonSizeClass}`; // combines classes
-    const router = useRouter();
+  const [isMounted, setIsMounted] = useState(false);
+  const router = useRouter();
 
-    function handleClick() {
-        if (route) {
-            // If route is provided, use it to navigate
-            router.push(route);
-        } else {
-            console.log("No route provided");
-        }
-        // If no route is provided, this function will do nothing
-        // You can also implement other default actions here if needed
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  function handleClick() {
+    if (route && isMounted) {
+      // If route is provided, use it to navigate after ensuring component is mounted
+      router.push(route);
+    } else {
+      console.log("No route provided");
     }
+  }
 
-    if (variant === "icon" && iconName) {
-        // @ts-expect-error passing name to icon
-        const Icon = icons[iconName];
-        if (!Icon) return "placeholder"; // Return null or a default icon if not found
-        
-        return (
-            <button className={buttonClass} onClick={handleClick}>
-                <Icon color={iconColor} />
-            </button>
-        );
+  const buttonTypeClass = styles[type];
+  const buttonSizeClass = styles[size];
+  const buttonClass = `${buttonTypeClass} ${buttonSizeClass}`; // Combines classes
+
+  if (variant === "icon" && iconName) {
+    const Icon = icons[iconName];
+    if (!Icon) {
+      return (
+        <button
+          className={buttonClass}
+          onClick={handleClick}
+          aria-label={altText}
+        >
+          <p>Icon not found</p>
+        </button>
+      );
     }
 
     return (
-        <button className={buttonClass} onClick={handleClick}>
-            <p>{label}</p>
-        </button>
+      <button
+        className={buttonClass}
+        onClick={handleClick}
+        aria-label={altText}
+      >
+        <Icon color={iconColor} />
+      </button>
     );
-}
+  }
+
+  return (
+    <button className={buttonClass} onClick={handleClick} aria-label={altText}>
+      <p>{label}</p>
+    </button>
+  );
+};
 
 export default Button;

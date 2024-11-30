@@ -1,0 +1,27 @@
+/* components/InteractiveImage/InteractiveImage.module.css */
+
+.interactiveImage {
+  position: absolute; /* Absolute positioning for desktop */
+  width: 200px; /* Adjust size as needed */
+  height: 266px;
+  pointer-events: none; /* Allows mouse events to pass through */
+  transition: opacity 0.3s ease; /* Smooth opacity transition */
+  opacity: 1; /* Initially hidden */
+  z-index: 1000; /* Ensure the image stays above other elements */
+  will-change: opacity; /* Hint the browser for better performance */
+  border-radius: 8px;
+  overflow: hidden;
+  transform: translate(-50%, -50%); /* Center the image under the cursor */
+}
+
+.interactiveImage.visible {
+  opacity: 1; 
+}
+
+.fixed {
+    position: relative; /* Fixed positioning for mobile */
+    width: 120px; /* Adjust size for mobile as needed */
+    height: 120px;
+    transform: none; /* Remove translation for fixed positioning */
+    border-radius: 100%;
+}
