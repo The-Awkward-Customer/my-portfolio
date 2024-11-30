@@ -1,12 +1,12 @@
 "use client";
 
-import TopNav from "@/components/top-nav/top-nav";
-import ProgressBar from "@/components/progressBar/progressBar";
+import TopNav from "@/components/TopNav/TopNav";
+import ProgressBar from "@/components/ProgressBar/ProgressBar";
 import styles from "./page.module.css";
 
-import HeroSection from "@/components/PageComponents/indexComponents/heroSection/heroSection";
+import HeroSection from "@/components/PageComponents/IndexComponents/HeroSection/HeroSection";
 import SectionHeader from "@/components/SectionHeaders/SectionHeader";
-import GridLayout from "@/components/PageComponents/indexComponents/GridLayout/GridLayout";
+import GridLayout from "@/components/PageComponents/IndexComponents/GridLayout/GridLayout";
 import Placeholder from "@/components/Placeholder/Placeholder";
 import Footer from "@/components/Footer/Footer";
 

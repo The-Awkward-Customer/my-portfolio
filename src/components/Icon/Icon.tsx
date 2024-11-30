@@ -1,4 +1,4 @@
-import { icons } from "@/components/1Icon/1IconsLib";
+import { icons } from "@/components/Icon/IconsLib";
 import styles from "./Icon.module.css"
 
 type Colors = "primary" | "on-primary" | "green-success";
