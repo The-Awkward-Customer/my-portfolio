@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from "./Footer.module.css"
-import Icon from '../Icon/Icon';
+import Icon from '../1Icon/Icon';
 
 const Footer: React.FC = () => {
     return (

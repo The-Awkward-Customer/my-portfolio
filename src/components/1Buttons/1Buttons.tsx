@@ -2,7 +2,7 @@
 
 import styles from "./Button.module.css";
 import { useRouter } from "next/navigation";
-import { icons } from "../Icon/IconsLib";
+import { icons } from "../1Icon/1IconsLib";
 import React, { useEffect, useState } from "react";
 
 type ButtonType = "primary" | "secondary" | "tertiary";
