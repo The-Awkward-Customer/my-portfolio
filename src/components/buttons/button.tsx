@@ -1,8 +1,8 @@
 "use client";
 
-import styles from "./button.module.css";
+import styles from "./Button.module.css";
 import { useRouter } from "next/navigation";
-import { icons } from "../icon/iconsLib";
+import { icons } from "../Icon/IconsLib";
 import React, { useEffect, useState } from "react";
 
 type ButtonType = "primary" | "secondary" | "tertiary";

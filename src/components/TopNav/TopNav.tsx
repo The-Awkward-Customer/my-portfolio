@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import styles from "./top-nav.module.css";
+import styles from "./TopNav.module.css";
 import Button from "../buttons/button";
 
 type topNavProps = {

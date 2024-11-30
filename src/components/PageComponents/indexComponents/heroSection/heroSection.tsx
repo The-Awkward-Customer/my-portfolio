@@ -1,7 +1,7 @@
 // components/HeroSection/HeroSection.tsx
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import styles from './HeroSection.module.css';
+import styles from './heroSection.module.css';
 import HeroText from '../heroText/HeroText';
 import InteractiveImage from '../interactiveImage/InteractiveImage';
 import throttle from 'lodash.throttle';
