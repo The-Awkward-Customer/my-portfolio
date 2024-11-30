@@ -1,9 +1,9 @@
 // components/HeroSection/HeroSection.tsx
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import styles from './heroSection.module.css';
-import HeroText from '../heroText/HeroText';
-import InteractiveImage from '../interactiveImage/InteractiveImage';
+import styles from './HeroSection.module.css';
+import HeroText from '../HeroText/HeroText';
+import InteractiveImage from '../InteractiveImage/InteractiveImage';
 import throttle from 'lodash.throttle';
 
 type ImageArray = string[];
