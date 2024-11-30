@@ -2,7 +2,7 @@
 
 import React from "react";
 import styles from "./TopNav.module.css";
-import Button from "../buttons/button";
+import Button from "../Buttons/Buttons"
 
 type topNavProps = {
   title: string;
