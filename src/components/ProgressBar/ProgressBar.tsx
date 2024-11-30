@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import styles from "./progressBar.module.css";
+import styles from "./ProgressBar.module.css";
 
 type progressBarProps = {
   children: React.ReactNode;
