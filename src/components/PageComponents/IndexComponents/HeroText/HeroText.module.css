@@ -1,20 +1,24 @@
 /* components/HeroText/HeroText.module.css */
 
-.heroText {
+.heroTextIntro {
     cursor: none; /* Hide the default cursor when over hero text */
-    text-align: center;
-    padding: 20px;
+    text-align: left;
     user-select: none; /* Prevent text selection during interaction */
+    font-weight: var(--font-weight-regular);
+    font-size: var(--fs-body-sm);
   }
   
-  .heroText h1 {
-    font-size: 3rem;
+  .heroText {
     margin-bottom: 1rem;
     color: #333;
+    font-weight: var(--font-weight-regular);
+    font-size: var(--fs-header-lg);
+    line-height: var(--lh-default);
   }
   
-  .heroText p {
-    font-size: 1.5rem;
+  .heroTextParagraph {
     color: #666;
+    font-weight: var(--font-weight-regular);
+    font-size: var(--fs-body-md);
   }
   

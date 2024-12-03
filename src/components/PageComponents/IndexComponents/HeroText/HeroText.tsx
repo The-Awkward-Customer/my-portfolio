@@ -39,8 +39,9 @@ const HeroText: React.FC<HeroTextProps> = ({ onMouseMove, onMouseEnter, onMouseL
       role="button" // Indicates it's interactive
       aria-label="Hero Text"
     >
-      <h1>Hi, I&apos;m pete</h1>
-      <p>Digital Product Engineer.</p>
+      <span className={styles.heroTextIntro}>Hi, Hey, Hello</span>
+      <h1 className={styles.heroText}>Hi, I&apos;m pete a design engineer with over a decade of experience helping companies define product strategy, scale market pressence and ship world class products.</h1>
+      <p className={styles.heroTextParagraph}>Before all if this I trained as a chef, yet I still manage to burn my toast.</p>
     </div>
   );
 };

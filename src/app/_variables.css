@@ -29,4 +29,33 @@
   --nested-random: #faf6f6;
   --lemon-yellow: #ffbb00;
   --cheesecake: #fff1d2;
+
+
+
+  /* fonts */
+
+  --font-primary: 'CivilPremium', sans-serif;
+
+  /* Font Weights */
+  --font-weight-regular: 400;
+  --font-weight-semi-bold: 600;
+  --font-weight-bold: 700;
+
+  /* Font Sizes */
+  --fs-body-xs: 0.75rem; /* 12px */
+  --fs-body-sm: 0.875rem; /* 14px */
+  --fs-body-md: 1rem; /* 16px */
+  --fs-body-lg: 1.125rem; /* 18px */
+  --fs-body-xl: 1.5rem; /* 24px */
+  --fs-body-2xl: 2rem; /* 32px */
+
+  /* Font Sizes Semantic */
+  --fs-header-lg: 3.5rem; /* 56px */
+  --fs-header-md: 3rem; /* 48px */
+  --fs-header-sm: 2.5rem; /* 40px */
+
+  /* Line Heights */
+  --lh-tight: 1.1;
+  --lh-default: 1.2;
+  --lh-loose: 1.3;
 }

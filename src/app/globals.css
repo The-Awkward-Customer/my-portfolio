@@ -1,3 +1,49 @@
+/* src/styles/globals.css */
+
+/* Use CSS variables to set color and size tokens */
+:root {
+  /* Color Tokens */
+  --color-fg-primary-light: #0070f3;
+  --color-fg-primary-dark: #0d47a1;
+  --color-fg-secondary-light: #ff4081;
+  --color-fg-secondary-dark: #f50057;
+
+
+  --color-bg-page-light: #ffffff;
+  --color-bg-page-dark: #121212;
+
+
+  /* Size Tokens */
+  --height-xs: 2rem;
+  --height-sm: 2rem;          /* 32px */
+  --height-md: 2.75rem;      /* 44px */
+  --font-size-sm: 0.875rem;   /* 14px */
+  --font-size-md: 1rem;      /* 16px */
+  --font-size-lg: 1.25rem;    /* 20px */
+  --spacing-small: 0.5rem;       /* 08px */
+  --spacing-md: 1rem;        /* 16px */
+  --spacing-lg: 1.5rem;       /* 24px */
+}
+
+/* Respect the user's preferred display mode using media queries */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-primary: var(--color-primary-dark);
+    --color-secondary: var(--color-secondary-dark);
+    --color-background: var(--color-background-dark);
+    --color-text: var(--color-text-dark);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-primary: var(--color-primary-light);
+    --color-secondary: var(--color-secondary-light);
+    --color-background: var(--color-background-light);
+    --color-text: var(--color-text-light);
+  }
+}
+
 /* Global Reset */
 *,
 *::before,
@@ -5,7 +51,46 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: var(--civil-premium);
 }
+
+/* Apply the global styles */
 body {
-  background-color: var(--bg-page);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  line-height: 1.6;
+  font-family: var(--civil-premium);
+}
+
+/* Utility Classes */
+.text-primary {
+  color: var(--color-primary);
+}
+
+.text-secondary {
+  color: var(--color-secondary);
+}
+
+.spacing-small {
+  margin: var(--spacing-small);
+}
+
+.spacing-medium {
+  margin: var(--spacing-medium);
+}
+
+.spacing-large {
+  margin: var(--spacing-large);
+}
+
+.font-small {
+  font-size: var(--font-size-small);
+}
+
+.font-medium {
+  font-size: var(--font-size-medium);
+}
+
+.font-large {
+  font-size: var(--font-size-large);
 }

@@ -4,6 +4,7 @@
     position: relative; /* Establishes a containing block for absolute positioning */
     width: 100%;
     height: 100vh; /* Full viewport height */
+    max-width: 1024px;
     display: flex;
     flex-direction: column;
     align-items: center;

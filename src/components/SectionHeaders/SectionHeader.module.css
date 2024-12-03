@@ -1,6 +1,6 @@
 .sectionHeaderRoot {
     display: grid;
-    place-items: start start;
+    place-items: left;
     background-color: lightblue;
     padding-left: 24px;
     padding-right: 24px;
@@ -10,15 +10,22 @@
 .sectionStandfirst {
     font-size: 1.5rem;
     font-weight: normal;
-    text-align: center;
+    text-align: left;
     margin: 1rem 0;
     color: #666;
 }
 
-.sectionHeader {
+.sectionHeaderTitleWrapper{
+    display: grid;
+    place-items: left;
+    width: 100%;
+    background-color: lightgreen;
+}
+
+.sectionHeaderTitle {
     font-size: 1.5rem;
     font-weight: bold;
-    text-align: center;
+    text-align: left;
     color: #333;
     background-color: lightblue;
 }

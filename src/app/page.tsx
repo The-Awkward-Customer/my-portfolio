@@ -9,6 +9,30 @@ import SectionHeader from "@/components/SectionHeaders/SectionHeader";
 import GridLayout from "@/components/PageComponents/IndexComponents/GridLayout/GridLayout";
 import Placeholder from "@/components/Placeholder/Placeholder";
 import Footer from "@/components/Footer/Footer";
+import localFont from 'next/font/local';
+
+/* eslint-disable */
+const civilPremium = localFont ({
+  src: [
+    {
+      path: '../../public/fonts/CivilPremium-Bold.otf',
+      weight: '700',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/CivilPremium-SemiBold.otf',
+      weight: '600',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/CivilPremium-Regular.otf',
+      weight: '400',
+      style: 'normal',
+    }
+  ],
+  variable: '--civil-premium'
+})
+
 
 
 
@@ -31,7 +55,7 @@ const images = [
 ]
   
   return (
-    <main className={styles.main}>
+    <main className={`${styles.main} ${civilPremium.variable}`}>
 
       <ProgressBar>
         <p>Congratulations! You&apos;ve reached the bottom of the page!</p>
@@ -43,7 +67,7 @@ const images = [
       <HeroSection images={images}/>
 
 
-        <SectionHeader title="About Me" standfirst="Hello"/>
+        <SectionHeader title="About Me" standfirst="Hello" text="here is some work in progress copy, please dont judge the fact it doesnt really say anything."/>
 
       <GridLayout>
         <Placeholder optionalText="1" />

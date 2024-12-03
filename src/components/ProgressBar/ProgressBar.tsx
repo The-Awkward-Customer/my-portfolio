@@ -5,7 +5,7 @@ import styles from "./ProgressBar.module.css";
 
 type progressBarProps = {
   children: React.ReactNode;
-};
+}
 
 const ProgressBar: React.FC<progressBarProps> = ({ children }) => {
   const [progress, setProgress] = useState<number>(0);
