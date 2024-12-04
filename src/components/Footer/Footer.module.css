@@ -1,17 +1,29 @@
 .footerRoot{
-
+display: flex;
+flex-flow: row;
+align-items: center;
+justify-content: space-between;
+background-color: rgb(247, 247, 250);
+width:100%;
+max-width: var(--size-mw-desktop);
+padding-top: var(--gap-inset-md);
+padding-bottom: var(--gap-inset-md);
 }
 
 .footerContentWrapper{
-
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--gap-inset-xs)
 }
 
 .footerText{
-
+    background-color: rgb(50, 255, 241);
 }   
 
 .footerLink{
-
+    background-color: rgb(140, 31, 229);
 }
 
 

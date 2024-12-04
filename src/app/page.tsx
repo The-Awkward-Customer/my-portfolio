@@ -10,6 +10,7 @@ import GridLayout from "@/components/PageComponents/IndexComponents/GridLayout/G
 import Placeholder from "@/components/Placeholder/Placeholder";
 import Footer from "@/components/Footer/Footer";
 import localFont from 'next/font/local';
+import Icon from "@/components/Icon/Icon";
 
 /* eslint-disable */
 const civilPremium = localFont ({
@@ -74,6 +75,11 @@ const images = [
       </ProgressBar>
 
       <TopNav title="Peter Abbott" />
+
+      <Icon iconName="placeholder" size="sm" color="primary" />
+      <Icon iconName="placeholder" size="md" color="primary" />
+      <Icon iconName="placeholder" size="lg" color="primary" />
+      <Icon iconName="placeholder" size="xl" color="primary" />
 
 
       <HeroSection images={images}/>

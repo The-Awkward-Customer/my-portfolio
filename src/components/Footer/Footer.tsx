@@ -8,8 +8,8 @@ const Footer: React.FC = () => {
             <div className={styles.footerContentWrapper}>
                 <Icon iconName='placeholder' size='sm' color='primary' />
                 <span className={styles.footerText}>Some text here</span>
-                <a href="https://your-link.com" className={styles.footerLink}>Github</a>
             </div>
+            <a href="https://your-link.com" className={styles.footerLink}>Github</a>
         </footer>
     );
 };

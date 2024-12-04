@@ -1,0 +1,28 @@
+.iconContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: pink;
+}
+
+.sm {
+    width: 24px;
+    height: 24px;
+}
+
+.md {
+    width: 48px;
+    height: 48px;
+}
+
+.lg {
+    width: 72px;
+    height: 72px;
+}
+
+.xl {
+    width: 96px;
+    height: 96px;
+}
