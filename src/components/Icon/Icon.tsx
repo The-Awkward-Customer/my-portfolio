@@ -18,10 +18,10 @@ export default function Icon({ iconName="placeholder", size, color }: IconProps)
 
 // maps props.size to px values
 const sizeMap: Record<string, number> = {
-  sm: 16,
-  md: 24,
-  lg: 32,
-  xl: 44,
+  sm: 20,
+  md: 28,
+  lg: 40,
+  xl: 48,
 }
 const iconSize = sizeMap[size];
 

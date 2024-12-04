@@ -11,6 +11,7 @@ import Placeholder from "@/components/Placeholder/Placeholder";
 import Footer from "@/components/Footer/Footer";
 import localFont from 'next/font/local';
 import Icon from "@/components/Icon/Icon";
+import Badge from "@/components/Badge/Badge";
 
 /* eslint-disable */
 const civilPremium = localFont ({
@@ -76,6 +77,8 @@ const images = [
 
       <TopNav title="Peter Abbott" />
 
+      <Badge variant="default" value={2} />
+
       <Icon iconName="placeholder" size="sm" color="primary" />
       <Icon iconName="placeholder" size="md" color="primary" />
       <Icon iconName="placeholder" size="lg" color="primary" />
@@ -96,6 +99,7 @@ const images = [
         <Placeholder optionalText="6"/>
       </GridLayout>
 
+      <SectionHeader standfirst="Contact" title="Abbottsayshi@gmail.com" text="Here's my email if you want to talk about a project, design or coaching"/>
       
       <Footer/>
     </main>

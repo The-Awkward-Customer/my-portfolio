@@ -2,14 +2,17 @@ import React from 'react';
 import styles from "./Footer.module.css"
 import Icon from '../Icon/Icon';
 
-const Footer: React.FC = () => {
+
+
+
+const Footer: React.FC = ({}) => {
     return (
         <footer className={styles.footerRoot}>
             <div className={styles.footerContentWrapper}>
-                <Icon iconName='placeholder' size='sm' color='primary' />
-                <span className={styles.footerText}>Some text here</span>
+                <Icon iconName='placeholder' size='sm' color='secondary' />
+                <span className={styles.footerText}>No AI was harmed in the making of this site.</span>
             </div>
-            <a href="https://your-link.com" className={styles.footerLink}>Github</a>
+            <a href="https://github.com/The-Awkward-Customer" className={styles.footerLink}>Github</a>
         </footer>
     );
 };

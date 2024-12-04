@@ -4,9 +4,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: lightcoral;
     width: 100%;
     max-width: var(--size-mw-desktop);
+    padding-bottom: var(--gap-section-lg);
 }
 
 .gridLayout {
@@ -14,7 +14,6 @@
     grid-template-columns: repeat(2, 1fr); /* Two equal columns */
     gap: 16px; /* Space between grid items */
     grid-auto-flow: dense; /* Fill the grid according to item spans */
-    background-color: lightblue;
     width: 100%;
   }
   

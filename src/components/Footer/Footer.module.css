@@ -3,7 +3,6 @@ display: flex;
 flex-flow: row;
 align-items: center;
 justify-content: space-between;
-background-color: rgb(247, 247, 250);
 width:100%;
 max-width: var(--size-mw-desktop);
 padding-top: var(--gap-inset-md);
@@ -19,11 +18,14 @@ padding-bottom: var(--gap-inset-md);
 }
 
 .footerText{
-    background-color: rgb(50, 255, 241);
+    color: var(--fg-secondary);
+    font-weight: var(--fw-default)
 }   
 
 .footerLink{
-    background-color: rgb(140, 31, 229);
+    font-weight: var(--fw-strong);
+    text-decoration: none;
+    color: var(--fg-primary);
 }
 
 
