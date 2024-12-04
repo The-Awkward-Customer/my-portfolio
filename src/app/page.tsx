@@ -9,6 +9,42 @@ import SectionHeader from "@/components/SectionHeaders/SectionHeader";
 import GridLayout from "@/components/PageComponents/IndexComponents/GridLayout/GridLayout";
 import Placeholder from "@/components/Placeholder/Placeholder";
 import Footer from "@/components/Footer/Footer";
+import localFont from 'next/font/local';
+
+/* eslint-disable */
+const civilPremium = localFont ({
+  src: [
+    {
+      path: '../../public/fonts/CivilPremium-Bold.otf',
+      weight: '700',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/CivilPremium-SemiBold.otf',
+      weight: '600',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/CivilPremium-Regular.otf',
+      weight: '400',
+      style: 'normal',
+    }
+  ],
+  variable: '--civil-premium'
+})
+
+/* eslint-disable */
+const silkaMono = localFont ({
+  src: [
+    {
+      path: '../../public/fonts/SilkaMono-Regular.otf',
+      weight: '700',
+      style: 'normal',
+    }
+  ],
+  variable: '--silka-mono'
+})
+
 
 
 
@@ -31,7 +67,7 @@ const images = [
 ]
   
   return (
-    <main className={styles.main}>
+    <main className={`${styles.main} ${civilPremium.variable} ${silkaMono.variable}`}>
 
       <ProgressBar>
         <p>Congratulations! You&apos;ve reached the bottom of the page!</p>
@@ -43,7 +79,7 @@ const images = [
       <HeroSection images={images}/>
 
 
-        <SectionHeader title="About Me" standfirst="Hello"/>
+        <SectionHeader standfirst="2022 - Present" title="A Potted Resumé"/>
 
       <GridLayout>
         <Placeholder optionalText="1" />

@@ -30,17 +30,17 @@ const HeroText: React.FC<HeroTextProps> = ({ onMouseMove, onMouseEnter, onMouseL
   };
 
   return (
-    <div
-      className={styles.heroText}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={handleMouseLeaveEvent}
-      tabIndex={0} // Makes the div focusable for accessibility
-      role="button" // Indicates it's interactive
-      aria-label="Hero Text"
-    >
-      <h1>Hi, I&apos;m pete</h1>
-      <p>Digital Product Engineer.</p>
+    <div className={styles.heroTextRoot}>
+      <span className={styles.heroTextIntro}>Hi, Hey, Hello</span>
+      <h1 
+       onMouseMove={handleMouseMove}
+       onMouseEnter={onMouseEnter}
+       onMouseLeave={handleMouseLeaveEvent}
+       tabIndex={0} // Makes the div focusable for accessibility
+       role="button" // Indicates it's interactive
+       aria-label="Hero Text"
+      className={styles.heroText}>Hi, I&apos;m pete a design engineer with over a decade of experience helping companies define product strategy, scale market pressence and ship world class products.</h1>
+      <p className={styles.heroTextParagraph}>Before all if this I trained as a chef, yet I still manage to burn my toast.</p>
     </div>
   );
 };

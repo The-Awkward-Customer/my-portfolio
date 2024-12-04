@@ -1,37 +1,59 @@
 .sectionHeaderRoot {
     display: grid;
-    place-items: start start;
-    background-color: lightblue;
-    padding-left: 24px;
-    padding-right: 24px;
+    place-items: left;
     width: 100%;
+    max-width: 1024px;
+    padding-bottom: var(--gap-section-lg);
+    background-color: var(--bg-page);
 }
 
 .sectionStandfirst {
-    font-size: 1.5rem;
-    font-weight: normal;
-    text-align: center;
-    margin: 1rem 0;
-    color: #666;
+    font-family: var(--font-secondary);
+    font-size: var(--fs-body-sm);
+    font-weight: var(--fw-default);
+    text-align: left;
+    padding-bottom: var(--gap-inset-md);
+
 }
 
-.sectionHeader {
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-align: center;
-    color: #333;
-    background-color: lightblue;
+
+.sectionHeaderTitle {
+    font-size: var(--fs-body-lg);
+    font-weight: var(--fw-default);
+    text-align: left;
+    padding-bottom: var(--gap-inset-sm);
+
+}
+
+.sectionSubText{
+    font-size: var(--fs-body-md);
+    font-weight: var(--fw-regular);
+    text-align: left;
+
 }
 
 
 /* Tablet - styles for screens between 481px and 768px */
 @media (min-width: 481px) and (max-width: 768px) {
+
+    .sectionHeaderTitle {
+        font-size: var(--fs-body-lg);
+    }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .sectionHeaderTitle {
+        font-size: var(--fs-body-xl);
+    }
 }
 
-/* Small Desktop / Laptop - styles for screens between 769px and 1024px */
-@media (min-width: 769px) and (max-width: 1024px) {
-}
+
+
 
 /* Large Desktop - styles for screens larger than 1025px */
 @media (min-width: 1025px) {
+
+    .sectionHeaderTitle {
+        font-size: var(--fs-body-2xl);
+    }
 }

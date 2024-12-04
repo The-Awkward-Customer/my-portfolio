@@ -9,7 +9,7 @@ const GridLayout: React.FC<GridLayoutProps> = ({ children }) => {
 
 
     return (
-        <section className={styles.gridContainer}>
+        <section className={styles.gridRoot}>
         <div className={styles.gridLayout}>
             {children}
         </div>
