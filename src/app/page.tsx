@@ -33,6 +33,18 @@ const civilPremium = localFont ({
   variable: '--civil-premium'
 })
 
+/* eslint-disable */
+const silkaMono = localFont ({
+  src: [
+    {
+      path: '../../public/fonts/SilkaMono-Regular.otf',
+      weight: '700',
+      style: 'normal',
+    }
+  ],
+  variable: '--silka-mono'
+})
+
 
 
 
@@ -55,7 +67,7 @@ const images = [
 ]
   
   return (
-    <main className={`${styles.main} ${civilPremium.variable}`}>
+    <main className={`${styles.main} ${civilPremium.variable} ${silkaMono.variable}`}>
 
       <ProgressBar>
         <p>Congratulations! You&apos;ve reached the bottom of the page!</p>
@@ -67,7 +79,7 @@ const images = [
       <HeroSection images={images}/>
 
 
-        <SectionHeader title="About Me" standfirst="Hello" text="here is some work in progress copy, please dont judge the fact it doesnt really say anything."/>
+        <SectionHeader standfirst="2022 - Present" title="A Potted Resumé"/>
 
       <GridLayout>
         <Placeholder optionalText="1" />

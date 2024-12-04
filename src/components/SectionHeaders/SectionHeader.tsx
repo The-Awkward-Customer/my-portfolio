@@ -12,10 +12,8 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({ title, standfirst,text })
     return (
         <div className={styles.sectionHeaderRoot}>
             {standfirst && <p className={styles.sectionStandfirst}>{standfirst}</p>}
-            <div className={styles.sectionHeaderTitleWrapper}>
             <h2 className={styles.sectionHeaderTitle}>{title}</h2>
-            </div>
-            {text && <p className={styles.sectionText}>{text}</p>}
+            {text && <p className={styles.sectionSubText}>{text}</p>}
         </div>
     );
 };
