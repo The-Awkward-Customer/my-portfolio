@@ -5,12 +5,10 @@ import { useRouter } from "next/navigation";
 import { icons } from "../Icon/IconsLib";
 import React, { useEffect, useState } from "react";
 
-type ButtonType = "primary" | "secondary" | "tertiary";
-type ButtonSizes = "small" | "medium" | "large";
-type ButtonVariant = "text" | "icon";
+type ButtonVariant = "primary" | "secondary" | "tertiary";
+type ButtonSizes = "sm" | "md" | "lg";
 
 type ButtonProps = {
-  type: ButtonType;
   size: ButtonSizes;
   variant: ButtonVariant;
   route: string | null;
@@ -20,17 +18,20 @@ type ButtonProps = {
   // Icon-only props
   iconName?: keyof typeof icons;
   iconColor?: string;
+  hasIcon?: boolean;
+  isIconOnly?: boolean;
 };
 
 const Button: React.FC<ButtonProps> = ({
   size,
-  type,
   variant,
   label = "Replace me",
   route,
-  iconName,
+  iconName = "placeholder",
   iconColor = "black",
   altText,
+  hasIcon = false,
+  isIconOnly = false,
 }) => {
   const [isMounted, setIsMounted] = useState(false);
   const router = useRouter();
@@ -41,45 +42,42 @@ const Button: React.FC<ButtonProps> = ({
 
   function handleClick() {
     if (route && isMounted) {
-      // If route is provided, use it to navigate after ensuring component is mounted
       router.push(route);
     } else {
       console.log("No route provided");
     }
   }
 
-  const buttonTypeClass = styles[type];
+  const buttonTypeClass = styles[variant];
   const buttonSizeClass = styles[size];
-  const buttonClass = `${buttonTypeClass} ${buttonSizeClass}`; // Combines classes
+  const buttonClass = `${buttonTypeClass} ${buttonSizeClass}`;
 
-  if (variant === "icon" && iconName) {
+  const renderIcon = () => {
+    if (!hasIcon || !iconName) return null;
     const Icon = icons[iconName];
-    if (!Icon) {
-      return (
-        <button
-          className={buttonClass}
-          onClick={handleClick}
-          aria-label={altText}
-        >
-          <p>Icon not found</p>
-        </button>
-      );
-    }
+    if (!Icon) return <p>Icon not found</p>;
+    return <Icon color={iconColor} />;
+  };
 
+  const renderContent = () => {
+    if (isIconOnly) {
+      return renderIcon();
+    }
     return (
-      <button
-        className={buttonClass}
-        onClick={handleClick}
-        aria-label={altText}
-      >
-        <Icon color={iconColor} />
-      </button>
+      <>
+        {hasIcon && renderIcon()}
+        {!isIconOnly && <p>{label}</p>}
+      </>
     );
-  }
+  };
 
   return (
-    <button className={buttonClass} onClick={handleClick} aria-label={altText}>
-      <p>{label}</p>
+    <button
+      className={buttonClass}
+      onClick={handleClick}
+      aria-label={altText}
+    >
+      {renderContent()}
     </button>
   );
 };

@@ -13,6 +13,14 @@
     padding-right: 4px;
 }
 
+.sm.isIconOnly {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:3rem;
+    height: 3rem;
+}
+
 .md {
     height: 3rem;
     padding-left: 16px;
@@ -25,6 +33,14 @@
     padding-right: 8px;
 }
 
+.md.isIconOnly {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:3rem;
+    height: 3rem;
+}
+
 .lg {
     height: 3.5rem;
     padding-left: 20px;
@@ -35,6 +51,14 @@
 .lg.hasSuffix {
     padding-left: 20px;
     padding-right: 16px;
+}
+
+.lg.isIconOnly {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:3rem;
+    height: 3rem;
 }
 
 /* Primary Button */

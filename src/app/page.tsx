@@ -86,28 +86,91 @@ const images = [
       <Icon iconName="placeholder" size="xl" color="primary" />
 
       <Button
-            type="primary"
+            variant="primary"
             size="sm"
-            variant="text"
             route={"/"}
             altText="Home"
           />
 
           <Button
-            type="secondary"
             size="md"
-            variant="text"
+            variant="primary"
+            route={"/"}
+            altText="Home"
+          />
+          <Button
+            size="lg"
+            variant="primary"
             route={"/"}
             altText="Home"
           />
 
-<Button
-            type="tertiary"
-            size="lg"
-            variant="text"
+<Button 
+            variant="primary"
+            size="sm"
             route={"/"}
             altText="Home"
+            hasIcon={true}
           />
+
+          <Button
+            size="md"
+            variant="primary"
+            route={"/"}
+            altText="Home"
+            hasIcon={true}
+          />
+          <Button
+            size="lg"
+            variant="primary"
+            route={"/"}
+            altText="Home"
+            hasIcon
+          />
+
+<Button
+            variant="primary"
+            size="sm"
+            route={"/"}
+            altText="Home"
+            isIconOnly={true}
+            hasIcon={true}
+            iconName="placeholder"
+            iconColor="primary"
+          />
+
+          <Button
+            size="md"
+            variant="primary"
+            route={"/"}
+            altText="Home"
+            isIconOnly={true}
+            hasIcon={true}
+            iconName="placeholder"
+            iconColor="primary"
+          />
+          <Button
+            size="lg"
+            variant="primary"
+            route={"/"}
+            altText="Home"
+            isIconOnly={true}
+            hasIcon={true}
+            iconName="placeholder"
+            iconColor="primary"
+          />
+
+
+<Button
+  size="md"
+  variant="primary"
+  label="Click Me"
+  route="/home"
+  altText="Go Home"
+  iconName="placeholder"
+  iconColor="primary"
+  hasIcon={true}
+/>
 
 
       <HeroSection images={images}/>

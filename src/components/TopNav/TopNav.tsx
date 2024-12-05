@@ -12,24 +12,21 @@ const TopNav: React.FC = ({ }) => {
       <div className={styles.navWrapper}>
         <nav className={styles.header}>
           <Button
-            type="primary"
             size="md"
-            variant="text"
+            variant="primary"
             route={"/index"}
             altText="Home"
           />
           <div className={styles.navButtonGroup}>
             <Button
-              type="primary"
               size="md"
-              variant="text"
+              variant="primary"
               route={"/about-me"}
               altText="About me"
             />
             <Button
-              type="primary"
               size="md"
-              variant="text"
+              variant="primary"
               route={"/about-me"}
               altText="About me"
             />
