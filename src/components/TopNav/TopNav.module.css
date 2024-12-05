@@ -4,25 +4,29 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 744px;
+  width: 100%;
   padding-top: 1rem;
   padding-bottom: 1rem;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+  max-width:var(--size-mw-desktop)
 }
 
 .navWrapper {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   width: 100%;
   background-color: var(--bg-inverse);
+  border-radius:var(--bdr-radius-small);
+  padding: 0.25rem;
 }
 
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width:100%;
 }
 
 .navButtonGroup {

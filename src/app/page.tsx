@@ -12,6 +12,7 @@ import Footer from "@/components/Footer/Footer";
 import localFont from 'next/font/local';
 import Icon from "@/components/Icon/Icon";
 import Badge from "@/components/Badge/Badge";
+import Button from "@/components/Buttons/Buttons";
 
 /* eslint-disable */
 const civilPremium = localFont ({
@@ -75,7 +76,7 @@ const images = [
         <p>Congratulations! You&apos;ve reached the bottom of the page!</p>
       </ProgressBar>
 
-      <TopNav title="Peter Abbott" />
+      <TopNav />
 
       <Badge variant="default" value={2} />
 
@@ -83,6 +84,30 @@ const images = [
       <Icon iconName="placeholder" size="md" color="primary" />
       <Icon iconName="placeholder" size="lg" color="primary" />
       <Icon iconName="placeholder" size="xl" color="primary" />
+
+      <Button
+            type="primary"
+            size="sm"
+            variant="text"
+            route={"/"}
+            altText="Home"
+          />
+
+          <Button
+            type="secondary"
+            size="md"
+            variant="text"
+            route={"/"}
+            altText="Home"
+          />
+
+<Button
+            type="tertiary"
+            size="lg"
+            variant="text"
+            route={"/"}
+            altText="Home"
+          />
 
 
       <HeroSection images={images}/>
