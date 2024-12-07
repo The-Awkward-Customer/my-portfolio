@@ -4,7 +4,7 @@ type badgeStyles = "default" | "inverse";
 
 
 interface BadgeProps {
-    variant: badgeStyles;
+    variant?: badgeStyles;
     value: number;
 }
 

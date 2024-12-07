@@ -18,7 +18,7 @@
   justify-content: space-between;
   width: 100%;
   background-color: var(--bg-inverse);
-  border-radius:var(--bdr-radius-small);
+  border-radius: 0.75rem;
   padding: 0.25rem;
 }
 

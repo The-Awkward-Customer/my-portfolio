@@ -18,14 +18,26 @@ padding-bottom: var(--gap-inset-md);
 }
 
 .footerText{
+    font-family: var(--silka-mono);
     color: var(--fg-secondary);
-    font-weight: var(--fw-default)
+    font-weight: var(--fw-default);
+    font-size: var(--fs-body-sm);
 }   
 
 .footerLink{
     font-weight: var(--fw-strong);
     text-decoration: none;
     color: var(--fg-primary);
+    transition: color 0.2s ease-in-out;
+}
+
+.footerLink:hover,
+.footerLink:focus {
+    text-decoration: underline;
+}
+
+.footerLink:active {
+    color: var(--fg-secondary);
 }
 
 

@@ -10,9 +10,9 @@ import GridLayout from "@/components/PageComponents/IndexComponents/GridLayout/G
 import Placeholder from "@/components/Placeholder/Placeholder";
 import Footer from "@/components/Footer/Footer";
 import localFont from 'next/font/local';
-import Icon from "@/components/Icon/Icon";
+import TextButton from "@/components/Buttons/TextButtons";
+import IconButton from "@/components/Buttons/IconButton";
 import Badge from "@/components/Badge/Badge";
-import Button from "@/components/Buttons/Buttons";
 
 /* eslint-disable */
 const civilPremium = localFont ({
@@ -78,105 +78,10 @@ const images = [
 
       <TopNav />
 
-      <Badge variant="default" value={2} />
-
-      <Icon iconName="placeholder" size="sm" color="primary" />
-      <Icon iconName="placeholder" size="md" color="primary" />
-      <Icon iconName="placeholder" size="lg" color="primary" />
-      <Icon iconName="placeholder" size="xl" color="primary" />
-
-      <Button
-            variant="primary"
-            size="sm"
-            route={"/"}
-            altText="Home"
-          />
-
-          <Button
-            size="md"
-            variant="primary"
-            route={"/"}
-            altText="Home"
-          />
-          <Button
-            size="lg"
-            variant="primary"
-            route={"/"}
-            altText="Home"
-          />
-
-<Button 
-            variant="primary"
-            size="sm"
-            route={"/"}
-            altText="Home"
-            hasIcon={true}
-          />
-
-          <Button
-            size="md"
-            variant="primary"
-            route={"/"}
-            altText="Home"
-            hasIcon={true}
-          />
-          <Button
-            size="lg"
-            variant="primary"
-            route={"/"}
-            altText="Home"
-            hasIcon
-          />
-
-<Button
-            variant="primary"
-            size="sm"
-            route={"/"}
-            altText="Home"
-            isIconOnly={true}
-            hasIcon={true}
-            iconName="placeholder"
-            iconColor="primary"
-          />
-
-          <Button
-            size="md"
-            variant="primary"
-            route={"/"}
-            altText="Home"
-            isIconOnly={true}
-            hasIcon={true}
-            iconName="placeholder"
-            iconColor="primary"
-          />
-          <Button
-            size="lg"
-            variant="primary"
-            route={"/"}
-            altText="Home"
-            isIconOnly={true}
-            hasIcon={true}
-            iconName="placeholder"
-            iconColor="primary"
-          />
-
-
-<Button
-  size="md"
-  variant="primary"
-  label="Click Me"
-  route="/home"
-  altText="Go Home"
-  iconName="placeholder"
-  iconColor="primary"
-  hasIcon={true}
-/>
-
 
       <HeroSection images={images}/>
 
-
-        <SectionHeader standfirst="2022 - Present" title="A Potted Resumé"/>
+      <SectionHeader standfirst="2022 - Present" title="A Potted Resumé"/>
 
       <GridLayout>
         <Placeholder optionalText="1" />

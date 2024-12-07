@@ -1,0 +1,98 @@
+/* Button.module.css */
+
+/* Primary Button */
+.primary {
+    display: grid;
+    place-items: center center;
+    box-shadow: inset 0 0px 0px 1px var(--bdr-primary);
+    background-color: var(--bg-neutral);
+    color: var(--fg-primary);
+    border: none;
+    cursor: pointer;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.primary:hover {
+    box-shadow: inset 0 0px 0px 2px var(--bdr-primary);
+    transform: scale(1);
+}
+
+.primary:active {
+    background-color: #e8e8e8;
+    transform: scale(0.95);
+}
+
+.primary:disabled {
+    background-color: #cce5ff;
+    cursor: not-allowed;
+}
+
+/* Secondary Button */
+.secondary {
+    display: grid;
+    place-items: center center;
+    box-shadow: inset 0 0px 0px 0px white;
+    background-color: var(--bg-inverse);
+    color: var(--fg-primary);
+    border: none;
+    cursor: pointer;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.secondary:hover {
+    box-shadow: inset 0 0px 0px 2px white;
+    transform: scale(1);
+}
+
+.secondary:active {
+    transform: scale(0.95);
+}
+
+.secondary:disabled {
+    background-color: #6e6e6e;
+    cursor: not-allowed;
+}
+
+/* Tertiary Button */
+.tertiary {
+    display: grid;
+    place-items: center center;
+    background-color: var(--bg-page);
+    color: var(--fg-primary);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.tertiary:hover {
+    background-color: rgb(232, 232, 232);
+    transform: scale(1);
+}
+
+.tertiary:active {
+    transform: scale(0.95);
+}
+
+.tertiary:disabled {
+    background-color: #cce5ff;
+    cursor: not-allowed;
+}
+
+/* Button Sizes */
+.sm {
+    height: 2rem;
+    width: 2rem;
+    border-radius: var(--bdr-radius-small-inset);
+}
+
+.md {
+    height: 3rem;
+    width: 3rem;
+    border-radius: var(--bdr-radius-small);
+}
+
+.lg {
+    height: 4rem;
+    width: 4rem;
+    border-radius: var(--bdr-radius-small);
+}
