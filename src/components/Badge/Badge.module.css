@@ -1,0 +1,11 @@
+.badgeRoot{
+    display:grid;
+    place-items: center center;
+    background-color: rgb(0, 0, 0);
+    width: 20px;
+    height: 20px;
+    border-radius: var(--bdr-radius-small-inset);
+    font-size: var(--fs-body-xs);
+    font-weight: var(--fw-strong);
+    color:white;
+}

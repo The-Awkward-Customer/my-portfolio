@@ -10,6 +10,9 @@ import GridLayout from "@/components/PageComponents/IndexComponents/GridLayout/G
 import Placeholder from "@/components/Placeholder/Placeholder";
 import Footer from "@/components/Footer/Footer";
 import localFont from 'next/font/local';
+import TextButton from "@/components/Buttons/TextButtons";
+import IconButton from "@/components/Buttons/IconButton";
+import Badge from "@/components/Badge/Badge";
 
 /* eslint-disable */
 const civilPremium = localFont ({
@@ -73,13 +76,12 @@ const images = [
         <p>Congratulations! You&apos;ve reached the bottom of the page!</p>
       </ProgressBar>
 
-      <TopNav title="Peter Abbott" />
+      <TopNav />
 
 
       <HeroSection images={images}/>
 
-
-        <SectionHeader standfirst="2022 - Present" title="A Potted Resumé"/>
+      <SectionHeader standfirst="2022 - Present" title="A Potted Resumé"/>
 
       <GridLayout>
         <Placeholder optionalText="1" />
@@ -90,6 +92,7 @@ const images = [
         <Placeholder optionalText="6"/>
       </GridLayout>
 
+      <SectionHeader standfirst="Contact" title="Abbottsayshi@gmail.com" text="Here's my email if you want to talk about a project, design or coaching"/>
       
       <Footer/>
     </main>
