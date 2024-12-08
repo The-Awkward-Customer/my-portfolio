@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import styles from './SegmentedButton.module.css';
+import { useSegmentedControlState } from '@/app/contexts/SegmentedControlContext';
 
 interface SegmentOption {
     id: string;
@@ -19,6 +20,9 @@ export const SegmentedButton: React.FC<SegmentedButtonProps> = ({
     defaultSelected,
     onChange,
 }) => {
+
+    const { selectedOption, setSelectedOption } = useSegmentedControlState();
+
     const [selectedId, setSelectedId] = useState(defaultSelected || options[0]?.id);
 
     const handleSelection = (id: string) => {
@@ -27,8 +31,8 @@ export const SegmentedButton: React.FC<SegmentedButtonProps> = ({
     };
 
     React.useEffect(() => {
-        console.log('Currently selected option:', selectedId);
-    }, [selectedId]);
+        console.log('Currently selected option:', selectedOption);
+    }, [selectedOption]);
 
     return (
         <ul className={`${styles.segmentedControlRoot}`} role="tablist">
@@ -36,9 +40,9 @@ export const SegmentedButton: React.FC<SegmentedButtonProps> = ({
                 <li key={option.id} role="presentation" className={styles.segmentedControlList}>
                     <button
                         className={`${styles.segmentControlButton} ${
-                            selectedId === option.id ? styles.selected : ''
+                            selectedOption === option.id ? styles.selected : ''
                         }`}
-                        onClick={() => handleSelection(option.id)}
+                        onClick={() => setSelectedOption(option.id)}
                         type="button"
                         role="tab"
                         aria-selected={selectedId === option.id}

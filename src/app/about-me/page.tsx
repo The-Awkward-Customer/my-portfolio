@@ -3,9 +3,10 @@
 "use client";
 
 import Badge from '@/components/Badge/Badge';
-import SegmentedButton from '@/components/Buttons/SegmentedButton/SegmentedButton';
+import SegmentedButton from '@/components/SegmentedButton/SegmentedButton';
 import React, { useState } from 'react';
 import TopNav from '@/components/TopNav/TopNav';
+import AboutMeContent from '@/components/PageComponents/AboutComponents/AboutMeContent/AboutMeContent';
 
 
 
@@ -24,9 +25,8 @@ const About: React.FC = () =>{
       <TopNav />
       <h1>About Me</h1>
       <SegmentedButton defaultSelected="medium" options={segmentedControlOptions} onChange={(id)=>setSelectedOption(id)} />
-      {selectedOption === 'option1' && 'The first option is selected'}
-      {selectedOption === 'option2' && <Badge value={2} variant="default" />}
-      {selectedOption === 'option3' && 'The third option is selected'}
+
+      <AboutMeContent/>
     </div>
   );
 };
