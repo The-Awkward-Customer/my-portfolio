@@ -19,6 +19,40 @@ export const metadata: Metadata = {
   description: "A portfolio by me for you ❤️",
 };
 
+/* eslint-disable */
+const civilPremium = localFont ({
+  src: [
+    {
+      path: '../../public/fonts/CivilPremium-Bold.otf',
+      weight: '700',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/CivilPremium-SemiBold.otf',
+      weight: '600',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/CivilPremium-Regular.otf',
+      weight: '400',
+      style: 'normal',
+    }
+  ],
+  variable: '--civil-premium'
+})
+
+/* eslint-disable */
+const silkaMono = localFont ({
+  src: [
+    {
+      path: '../../public/fonts/SilkaMono-Regular.otf',
+      weight: '700',
+      style: 'normal',
+    }
+  ],
+  variable: '--silka-mono'
+})
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -26,7 +60,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={`${civilPremium.variable} ${silkaMono.variable}`}>
         {children}
       </body>
     </html>

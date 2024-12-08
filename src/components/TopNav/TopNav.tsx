@@ -16,8 +16,8 @@ const TopNav: React.FC = ({ }) => {
           <Badge value={8} variant="default" />
           </TextButton>
           <div className={styles.navButtonGroup}>
-          <TextButton size="md" variant="primary" route={"/about-me"} altText="About me" label="About me" />
-          <TextButton size="md" variant="primary" route={"/about-me"} altText="About me" label="About me" />
+          <TextButton size="md" variant="primary" route={"/about-me"} altText="About me" label="About" />
+          <TextButton size="md" variant="primary" route={"/contact"} altText="About me" label="contact" />
           </div>
         </nav>
       </div>
