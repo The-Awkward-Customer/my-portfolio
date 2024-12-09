@@ -31,32 +31,32 @@
 /* Tablet - styles for screens between 481px and 768px */
 @media (min-width: 481px) and (max-width: 768px) {
     .gridContainer{
-        background-color: rgb(228, 147, 147);
+        background-color: rgba(228, 147, 147, 0);
     }
 
     .gridLayout {
-        background-color: lightblue;
+        background-color: rgba(173, 216, 230, 0);
       }
 }
 
 /* Small Desktop / Laptop - styles for screens between 769px and 1024px */
 @media (min-width: 769px) and (max-width: 1024px) {
     .gridContainer{
-        background-color: rgb(228, 97, 97);
+        background-color: rgba(228, 97, 97, 0);
     }
 
     .gridLayout {
-        background-color: rgb(61, 180, 220);
+        background-color: rgba(61, 180, 220, 0);
       }
 }
 
 /* Large Desktop - styles for screens larger than 1025px */
 @media (min-width: 1025px) {
     .gridContainer{
-        background-color: rgb(222, 36, 36);
+        background-color: rgba(222, 36, 36, 0);
     }
 
     .gridLayout {
-        background-color: rgb(8, 174, 230);
+        background-color: rgba(8, 175, 230, 0);
       }
 }
