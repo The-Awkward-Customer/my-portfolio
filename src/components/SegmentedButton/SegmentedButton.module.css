@@ -1,0 +1,40 @@
+.segmentedControlRoot {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.segmentControlButton {
+    border: none;
+    background: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    position: relative;
+    color: #666;
+}
+
+.segment:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: #333;
+}
+
+.selected {
+    background-color: #fff;
+    color: #000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure buttons fill their container */
+.segmentedControlList {
+    flex: 1;
+}
+
+.listButton {
+    width: 100%;
+}

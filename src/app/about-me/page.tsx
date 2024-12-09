@@ -1,13 +1,32 @@
 // pages/about.js
 
-import React from 'react';
+"use client";
 
-const About = () => {
+import Badge from '@/components/Badge/Badge';
+import SegmentedButton from '@/components/SegmentedButton/SegmentedButton';
+import React, { useState } from 'react';
+import TopNav from '@/components/TopNav/TopNav';
+import AboutMeContent from '@/components/PageComponents/AboutComponents/AboutMeContent/AboutMeContent';
+
+
+
+const About: React.FC = () =>{
+
+  const [selectedOption, setSelectedOption] = useState<string>('option2');
+
+  const segmentedControlOptions = [
+    { id: 'option1', label: 'one' },
+    { id: 'option2', label: 'two' },
+    { id: 'option3', label: 'three' },
+    ];
+
   return (
     <div>
+      <TopNav />
       <h1>About Me</h1>
-      <p>Hello, I&apos;m Peter Abbott! I&apos;m a passionate software developer focused on creating delightful digital experiences. Welcome to my portfolio!</p>
-      <p>I love working with web technologies, building interactive interfaces, and working on exciting projects like my current BumbleBoogie game.</p>
+      <SegmentedButton defaultSelected="medium" options={segmentedControlOptions} onChange={(id)=>setSelectedOption(id)} />
+
+      <AboutMeContent/>
     </div>
   );
 };

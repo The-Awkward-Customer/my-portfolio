@@ -8,4 +8,5 @@
     font-size: var(--fs-body-xs);
     font-weight: var(--fw-strong);
     color:white;
+    font-family: var(--civil-premium);
 }
