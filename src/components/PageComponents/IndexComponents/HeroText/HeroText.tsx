@@ -31,7 +31,7 @@ const HeroText: React.FC<HeroTextProps> = ({ onMouseMove, onMouseEnter, onMouseL
 
   return (
     <div className={styles.heroTextRoot}>
-      <span className={styles.heroTextIntro}>Hi, Hey, Hello</span>
+      <span className={styles.heroTextIntro}>Site coming soon…</span>
       <h1 
        onMouseMove={handleMouseMove}
        onMouseEnter={onMouseEnter}
@@ -39,8 +39,10 @@ const HeroText: React.FC<HeroTextProps> = ({ onMouseMove, onMouseEnter, onMouseL
        tabIndex={0} // Makes the div focusable for accessibility
        role="button" // Indicates it's interactive
        aria-label="Hero Text"
-      className={styles.heroText}>Hi, I&apos;m pete a design engineer with over a decade of experience helping companies define product strategy, scale market pressence and ship world class products.</h1>
-      <p className={styles.heroTextParagraph}>Before all if this I trained as a chef, yet I still manage to burn my toast.</p>
+       className={styles.heroText}
+       dangerouslySetInnerHTML={{ __html: "Hi, I&apos;m Peter. <br> I design digital products for folks.</br>" }}
+      />
+      <p className={styles.heroTextParagraph}>Avaiable for work</p>
     </div>
   );
 };

@@ -56,8 +56,15 @@ const HeroSection: React.FC<HeroSectionProps> = ({ images }) => {
 
       // Update the position of InteractiveImage
       if (interactiveImageRef.current && !isMobile) {
-        interactiveImageRef.current.style.left = `${clientX}px`;
-        interactiveImageRef.current.style.top = `${clientY}px`;
+        const newLeft = clientX;
+        const newTop = clientY;
+
+        interactiveImageRef.current.style.left = `${newLeft}px`;
+        interactiveImageRef.current.style.top = `${newTop}px`;
+
+      // Debug: Log positions
+  console.log(`Mouse Position: X=${clientX}, Y=${clientY}`);
+  console.log(`InteractiveImage Position: Left=${newLeft}px, Top=${newTop}px`);
       }
     }, 10), // Throttle to every 10ms for higher responsiveness
     [currentImageIndex, images.length, isMobile]
