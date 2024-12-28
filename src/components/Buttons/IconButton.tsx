@@ -3,7 +3,6 @@
 
 import styles from "./IconButton.module.css";
 import { useRouter } from "next/navigation";
-import Icon from "../Icon/Icon";
 import { icons } from "../Icon/IconsLib";
 import React, { useEffect, useState } from "react";
 
