@@ -18,12 +18,12 @@ export default function Icon({ iconName="placeholder", size, color }: IconProps)
   if (!Icon) return "placeholder"; // Return null or a default icon if not found
 
 // maps props.size to px values
-const sizeMap: Record<string, string> = {
-  xs: "16px",
-  sm: "20px",
-  md: "28px",
-  lg: "40px",
-  xl: "48px",
+const sizeMap: Record<Sizes, string> = {
+  xs: "16",
+  sm: "20",
+  md: "28",
+  lg: "40",
+  xl: "48",
 }
 const iconSize = sizeMap[size];
 

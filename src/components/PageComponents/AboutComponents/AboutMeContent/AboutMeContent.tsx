@@ -1,5 +1,5 @@
 
-import styles from "./AboutMeContent.module.css";
+// import styles from "./AboutMeContent.module.css";
 
 import { useSegmentedControlState } from "@/app/contexts/SegmentedControlContext";
 

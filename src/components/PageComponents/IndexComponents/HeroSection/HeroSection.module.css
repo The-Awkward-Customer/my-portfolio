@@ -9,7 +9,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    overflow: hidden; /* Hide overflow to contain interactive image */
+    /* overflow: hidden; Hide overflow to contain interactive image  */
   }
 
 

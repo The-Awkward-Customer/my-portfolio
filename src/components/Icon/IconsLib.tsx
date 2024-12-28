@@ -1,7 +1,7 @@
 // For icon primatives 
 
 
-type IconComponent = React.FC<{ color: string; width: number; height: number }>;
+type IconComponent = React.FC<{ color: string; width: string; height: string }>;
 
 
 export const icons: Record<string, IconComponent> = {

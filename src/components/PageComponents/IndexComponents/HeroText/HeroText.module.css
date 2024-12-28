@@ -2,20 +2,21 @@
 
 .heroTextRoot{
   display: grid;
-  place-items: left;
-  width: 100%;
+  place-items: center;
+  width: 70%;
   gap:var(--gap-inset-md);
+  padding:1.5rem;
 }
 
 .heroTextIntro {
-    cursor: none; /* Hide the default cursor when over hero text */
-    text-align: left;
+    text-align: center;
     user-select: none; /* Prevent text selection during interaction */
     font-weight: var(--fw-regular);
     font-size: var(--fs-body-sm);
   }
   
   .heroText {
+    text-align: center;
     font-weight: var(--fw-regular);
     font-size: var(--fs-header-lg);
     line-height: var(--lh-default);
@@ -30,12 +31,37 @@
   
 
 
-  /* Tablet - styles for screens between 481px and 768px */
-@media (min-width: 481px) and (max-width: 768px) {
+  /* Tablet - styles for screens between 0px and 768px */
+@media (min-width: 320px) and (max-width: 768px) {
+  .heroTextRoot{
+    display: grid;
+    place-items: center;
+    width: 100%;
+    gap:var(--gap-inset-md);
+    padding:1rem;
+  }
+
+  .heroText {
+    text-align: center;
+    font-weight: var(--fw-regular);
+    font-size: var(--fs-header-xs);
+    line-height: var(--lh-default);
+  }
 }
 
 /* Small Desktop / Laptop - styles for screens between 769px and 1024px */
 @media (min-width: 769px) and (max-width: 1024px) {
+  .heroTextRoot{
+    width: 100%;
+    padding:1rem;
+    gap:var(--gap-inset-md);
+  }
+  .heroText {
+    text-align: center;
+    font-weight: var(--fw-regular);
+    font-size: var(--fs-header-sm);
+    line-height: var(--lh-default);
+  }
 }
 
 /* Large Desktop - styles for screens larger than 1025px */
