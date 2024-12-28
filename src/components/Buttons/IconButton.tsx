@@ -39,19 +39,19 @@ type IconButtonProps = {
       }
     }
   
-    let iconSize: number;
+    let iconSize: string;
     switch (size) {
         case 'sm':
-            iconSize = 16;
+            iconSize = "16";
             break;
         case 'md':
-            iconSize = 20;
+            iconSize = "20";
             break;
         case 'lg':
-            iconSize = 28;
+            iconSize = "28";
             break;
         default:
-            iconSize = 32;
+            iconSize = "32";
     }
 
     const iconButtonClass = `${styles[variant]} ${styles[size]}`;
