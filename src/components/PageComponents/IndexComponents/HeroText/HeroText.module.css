@@ -3,9 +3,9 @@
 .heroTextRoot{
   display: grid;
   place-items: center;
-  width: 70%;
+  width: 100%;
   gap:var(--gap-inset-md);
-  padding:1.5rem;
+  padding:1rem;
 }
 
 .heroTextIntro {
@@ -18,7 +18,7 @@
   .heroText {
     text-align: center;
     font-weight: var(--fw-regular);
-    font-size: var(--fs-header-lg);
+    font-size: var(--fs-header-xs);
     line-height: var(--lh-default);
   }
   
@@ -29,41 +29,3 @@
     text-decoration: line-through;
   }
   
-
-
-  /* Tablet - styles for screens between 0px and 768px */
-@media (min-width: 320px) and (max-width: 768px) {
-  .heroTextRoot{
-    display: grid;
-    place-items: center;
-    width: 100%;
-    gap:var(--gap-inset-md);
-    padding:1rem;
-  }
-
-  .heroText {
-    text-align: center;
-    font-weight: var(--fw-regular);
-    font-size: var(--fs-header-xs);
-    line-height: var(--lh-default);
-  }
-}
-
-/* Small Desktop / Laptop - styles for screens between 769px and 1024px */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .heroTextRoot{
-    width: 100%;
-    padding:1rem;
-    gap:var(--gap-inset-md);
-  }
-  .heroText {
-    text-align: center;
-    font-weight: var(--fw-regular);
-    font-size: var(--fs-header-sm);
-    line-height: var(--lh-default);
-  }
-}
-
-/* Large Desktop - styles for screens larger than 1025px */
-@media (min-width: 1025px) {
-}
