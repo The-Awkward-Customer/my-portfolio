@@ -23,11 +23,19 @@ const HeroSection: React.FC<HeroSectionProps> = ({ images }) => {
 
   // Ref for InteractiveImage positioning
   const interactiveImageRef = useRef<HTMLDivElement>(null);
+  const heroSectionRef = useRef<HTMLElement>(null); // Ref for heroSection
 
   // Determine if the device is mobile based on viewport width
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768); // Example breakpoint for mobile
+
+      // Debug: Log bounding box and offset width/height
+      if (interactiveImageRef.current) {
+        const rect = interactiveImageRef.current.getBoundingClientRect();
+        console.log(`InteractiveImage BoundingRect:`, rect); // Added debug log for bounding rect on resize GPT!
+        console.log(`Offset Width: ${interactiveImageRef.current.offsetWidth}, Offset Height: ${interactiveImageRef.current.offsetHeight}`); // Added debug log for offset dimensions GPT!
+      }
     };
 
     handleResize(); // Initial check
@@ -51,22 +59,22 @@ const HeroSection: React.FC<HeroSectionProps> = ({ images }) => {
         const newIndex = (currentImageIndex + movementIncrements) % images.length;
         setCurrentImageIndex(newIndex);
         cumulativeDistanceRef.current %= 20; // Reset the cumulative distance
-        console.log(`Image index updated to ${newIndex}`);
+        console.log(`Image index updated to ${newIndex}`); // Added debug log for image index update GPT!
       }
 
       // Update the position of InteractiveImage
-      if (interactiveImageRef.current && !isMobile) {
-        const newLeft = clientX;
-        const newTop = clientY;
+      if (interactiveImageRef.current && heroSectionRef.current && !isMobile) {
+        const heroRect = heroSectionRef.current.getBoundingClientRect(); // Get bounding rect of heroSection GPT!
+        const adjustedLeft = Math.round(clientX - heroRect.left); // Adjust relative to heroSection GPT!
+        const adjustedTop = Math.round(clientY - heroRect.top); // Adjust relative to heroSection GPT!
 
-        interactiveImageRef.current.style.left = `${newLeft}px`;
-        interactiveImageRef.current.style.top = `${newTop}px`;
+        interactiveImageRef.current.style.left = `${adjustedLeft}px`;
+        interactiveImageRef.current.style.top = `${adjustedTop}px`;
+        interactiveImageRef.current.style.transform = 'translate(-50%, -50%)'; // Reset transform for accurate alignment.
 
-      // Debug: Log positions
-  console.log(`Mouse Position: X=${clientX}, Y=${clientY}`);
-  console.log(`InteractiveImage Position: Left=${newLeft}px, Top=${newTop}px`);
+
       }
-    }, 10), // Throttle to every 10ms for higher responsiveness
+    }, 20), // Adjusted throttle to every 20ms for performance
     [currentImageIndex, images.length, isMobile]
   );
 
@@ -77,8 +85,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ images }) => {
       const scrollIncrement = Math.floor(scrollY / 20);
       const newIndex = scrollIncrement % images.length;
       setCurrentImageIndex(newIndex);
-      console.log(`Scroll position updated to scrollY=${scrollY}, newIndex=${newIndex}`);
-    }, 100), // Throttle to every 100ms
+      
+    }, 20),
     [images.length]
   );
 
@@ -96,16 +104,15 @@ const HeroSection: React.FC<HeroSectionProps> = ({ images }) => {
   // Handlers for hover state
   const handleMouseEnter = () => {
     setIsHovering(true);
-    console.log(`Hover started: isHovering=${true}`);
-    cumulativeDistanceRef.current = 0; // Reset cumulative distance on hover
-    lastPositionRef.current = null; // Reset last position to avoid offset
+    cumulativeDistanceRef.current = 0; // Reset cumulative distance on hover GPT!
+    lastPositionRef.current = null; // Reset last position to avoid offset GPT!
   };
 
   const handleMouseLeave = () => {
     setIsHovering(false);
-    console.log(`Hover ended: isHovering=${false}`);
-    cumulativeDistanceRef.current = 0; // Reset cumulative distance when hover ends
-    lastPositionRef.current = null; // Reset last position
+
+    cumulativeDistanceRef.current = 0; // Reset cumulative distance when hover ends GPT!
+    lastPositionRef.current = null; // Reset last position GPT!
     if (interactiveImageRef.current) {
       interactiveImageRef.current.style.left = `0px`;
       interactiveImageRef.current.style.top = `0px`;
@@ -113,8 +120,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ images }) => {
   };
 
   return (
-    <section className={styles.heroSection}>
-      
+    <section ref={heroSectionRef} className={styles.heroSection}> {/* Added ref for heroSection GPT! */}
       {/* Conditionally render InteractiveImage only when hovering and not on mobile */}
       {!isMobile && isHovering && (
         <InteractiveImage

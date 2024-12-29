@@ -40,9 +40,9 @@ const HeroText: React.FC<HeroTextProps> = ({ onMouseMove, onMouseEnter, onMouseL
        role="button" // Indicates it's interactive
        aria-label="Hero Text"
        className={styles.heroText}
-       dangerouslySetInnerHTML={{ __html: "Hi, I&apos;m Peter. <br> I design digital products for folks.</br>" }}
+       dangerouslySetInnerHTML={{ __html: "Hi, I&apos;m Peter. <br> I design products for folks.</br>" }}
       />
-      <p className={styles.heroTextParagraph}>Avaiable for work</p>
+      <p className={styles.heroTextParagraph}>Available for work</p>
     </div>
   );
 };

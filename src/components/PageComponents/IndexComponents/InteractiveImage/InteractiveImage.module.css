@@ -8,10 +8,10 @@
   transition: opacity 0.3s ease; /* Smooth opacity transition */
   opacity: 1; /* Initially hidden */
   z-index: 1000; /* Ensure the image stays above other elements */
-  will-change: opacity; /* Hint the browser for better performance */
+  will-change: transform, left, top; /* Hint browser for performance optimization GPT! */
+  box-sizing: border-box; /* Added for consistent box model behavior GPT! */
   border-radius: 8px;
   overflow: hidden;
-  transform: translate(-50%, -50%); /* Center the image under the cursor */
 }
 
 .interactiveImage.visible {
